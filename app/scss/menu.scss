@@ -1,0 +1,42 @@
+.menu{
+    display: flex;
+    flex-direction: column;
+    
+    &-btn{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 30px;
+      width: 30px;
+      background-color: transparent;
+      border: none;
+      position: relative;
+      z-index: 5;
+      
+      span{
+          display: block;
+          height: 3px;
+          width: 30px;
+          background-color: #fff;
+      }
+    }
+  
+    &__item{
+        padding: 0 12px;
+    }
+    
+    &__link{
+        font-size: 1.125rem;
+        color: #fff;
+    }
+  
+    @media screen and (min-width: 1025px){
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+  
+      &-btn{
+        display: none;
+      }
+    }
+  }

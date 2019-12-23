@@ -1,0 +1,19 @@
+include templates/head.pug
+include templates/header.pug
+
+main
+  section.ba-hero
+    .container
+        h1.ba-hero__title
+            div= hero.title[0]
+            div= hero.title[1]
+            div= hero.title[2]
+
+  section.ba-section
+    .container
+        h2.ba-title.visually-hidden About us
+        .ba-text= aboutUs
+        a(href='about-us.html') Know more
+
+
+include templates/footer.pug

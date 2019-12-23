@@ -1,0 +1,9 @@
+{
+	"menu": [
+		["Home", "/"]
+		, ["About", "#"]
+		, ["Blog", "#"]
+		, ["Portfolio", "#"]
+		, ["Contact", "#"]
+	]
+}
