@@ -10,7 +10,6 @@ Use Gulp 4, Babel, AutoPrefixer, SCSS, webp
 <pre>
   <code>
     git clone https://github.com/antipenko/kross-agency
-    git remote remove origin
     npm i
     gulp
   </code>
