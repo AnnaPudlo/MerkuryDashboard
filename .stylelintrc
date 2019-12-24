@@ -13,6 +13,7 @@
     "declaration-colon-space-after": "always",
     "comment-whitespace-inside": "never",
     "at-rule-no-vendor-prefix": true,
-    "rule-empty-line-before": "always"
+    "rule-empty-line-before": "always",
+    "at-rule-no-unknown": null
   }
 }
