@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "js-build": "babel app/js -d build/js --presets es2015",
     "watch": "babel app/js -d build/js --presets es2015 -w",
-    "styleLint": "stylelint app/**/normalize.scss"
+    "styleLint": "stylelint app/**/variables.scss"
   },
   "author": "vladik",
   "license": "ISC",
