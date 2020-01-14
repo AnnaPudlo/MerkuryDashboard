@@ -16,6 +16,10 @@ $columns: 12;
             padding-left: $colGups;
         }
 
+        .hidden-#{$name} {
+            display: none;
+        }
+
         @for $i from 1 through $columns {
 
             .col-#{$name}-#{$i} {
@@ -29,6 +33,13 @@ $columns: 12;
             .col-#{$name}-offset-#{$i} {
                 margin-left: 100% / $columns * $i;
             }
+        }
+    }
+
+    @media only screen and (max-width: $size) {
+
+        .hidden-before-#{$name} {
+            display: none;
         }
     }
 }

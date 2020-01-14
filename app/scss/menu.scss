@@ -1,42 +1,21 @@
 .menu {
+    list-style: none;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 500;
 
-    &-btn {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 30px;
-        width: 30px;
-        background-color: transparent;
-        border: none;
-        position: relative;
-        z-index: 5;
-
-        span {
-            display: block;
-            height: 3px;
-            width: 30px;
-            background-color: #fff;
-        }
-    }
-
-    &__item {
-        padding: 0 12px;
+    &__item + &__item {
+        margin-left: 1rem;
     }
 
     &__link {
-        font-size: 1.125rem;
-        color: #fff;
+        text-decoration: none;
+        color: inherit;
     }
 
-    @media screen and (min-width: 1025px) {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-
-        &-btn {
-            display: none;
-        }
+    span {
+        font-size: 1rem;
+        color: white;
     }
 }

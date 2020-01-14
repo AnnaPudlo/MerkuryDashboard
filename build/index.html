@@ -3,40 +3,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap">
+  <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/app.min.css">
   <title></title>
+  <link rel="icon" href="favicon.ico">
 </head>
 <body></body>
-<header class="ba-header">
-  <div class="container ba-header__container"><a class="ba-logo" href="#">kross</a>
-    <nav>
-      <ul class="menu">
-        <li class="menu__item"><a class="menu__link" href="#/">Home</a></li>
-        <li class="menu__item"><a class="menu__link" href="##">About</a></li>
-        <li class="menu__item"><a class="menu__link" href="##">Blog</a></li>
-        <li class="menu__item"><a class="menu__link" href="##">Portfolio</a></li>
-        <li class="menu__item"><a class="menu__link" href="##">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-<main>
-  <section class="ba-hero">
-    <div class="container">
-      <h1 class="ba-hero__title">
-        <div>Hi! I’m</div>
-        <div>Christoher</div>
-        <div>UX designer</div>
+<div class="col-12 col-md-8 content-wrap">
+  <header class="ba-header">
+    <div class="ba-header__container"><a class="ba-logo" href="#"><img class="ba-logo__img" src="images/ba-logo-img.png" alt="logo">merkury</a>
+      <nav>
+        <ul class="menu">
+          <li class="menu__item"><a class="hidden-before-sm menu__link" href="##">Register</a><a class="hidden-sm menu__link" href="##"><span class="icon-user-plus"></span></a></li>
+          <li class="menu__item"><a class="hidden-before-sm menu__link" href="##">Login</a><a class="hidden-sm menu__link" href="##"><span class="icon-login"></span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="ba-form__container">
+      <h1 class="ba-title">Welcome <span class="blue">back</span>!
       </h1>
+      <form class="ba-form" action="#">
+        <label class="ba-label icon-user">
+          <input class="ba-input__login" type="text" name="ba-login" placeholder="Username">
+        </label>
+        <label class="ba-label icon-lock">
+          <input class="ba-input__password" type="password" name="ba-password" placeholder="Password">
+        </label>
+        <button class="ba-btn__submit" type="submit" name="ba-submit">Enter</button>
+      </form>
     </div>
-  </section>
-  <section class="ba-section">
-    <div class="container">
-      <h2 class="ba-title visually-hidden">About us</h2>
-      <div class="ba-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div><a href="about-us.html">Know more</a>
-    </div>
-  </section>
-</main>
+  </main>
+</div>
 <footer class="ba-footer"></footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
 <script src="js/slick.min.js"></script>

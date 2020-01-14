@@ -1,6 +1,150 @@
-.ba-hero {
-    background-color: $primaryColor;
-    color: #fff;
-    padding-top: 100px;
+body {
+    background-color: #f9f8f3;
+    background-image: url(../images/login_bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: "Roboto", sans-serif;
+}
+
+.content-wrap {
     height: 100vh;
+    padding: 0;
+
+    @media screen and (min-width: 769px) {
+        position: absolute;
+        max-width: 740px;
+        height: 520px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    background-color: $mainBackground;
+}
+
+.ba-header {
+    color: #fff;
+
+    .ba-logo {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+        text-transform: capitalize;
+        font-weight: 500;
+
+        &__img {
+            margin-right: 1rem;
+            width: 40px;
+            height: 40px;
+            animation-name: rotate360;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+    }
+
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $mainColor;
+        height: 70px;
+        padding: 1rem;
+
+        @media screen and (min-width: 769px) {
+            padding: 2rem;
+            height: 90px;
+        }
+    }
+}
+
+.ba-form {
+    max-width: 350px;
+    width: 80%;
+    margin: 0 auto;
+
+    &__container {
+        color: $gray;
+        text-align: center;
+        padding: 50px 0;
+    }
+}
+
+[class*="ba-input"] {
+    width: 80%;
+    border: none;
+    background-color: transparent;
+    height: 40px;
+    font-size: 1rem;
+    margin-top: 1.2rem;
+
+    &::placeholder {
+        color: #9ba6be;
+    }
+
+    &:hover {
+        cursor: text;
+    }
+}
+
+.ba-btn {
+
+    &__submit {
+        max-width: 230px;
+        width: 60%;
+        height: 40px;
+        margin: 0 auto;
+        border: none;
+        border-radius: 20px;
+        background-color: $blue;
+        color: #fff;
+        margin-top: 4rem;
+        position: relative;
+
+        &::after {
+            content: "\f105";
+            font-family: "ifont";
+            font-size: 0.875rem;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 2rem;
+        }
+    }
+}
+
+.ba-label {
+    display: block;
+    margin: 0 auto;
+    text-align: left;
+    padding-left: 0.5rem;
+    color: $blue;
+    font-size: 1.2rem;
+    border-bottom: 1px solid $grayLight;
+}
+
+.ba-title {
+    font-size: 1.875rem;
+    font-weight: 300;
+    margin-bottom: 3rem;
+
+    .blue {
+        color: $blue;
+    }
+}
+
+@keyframes rotate360 {
+
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

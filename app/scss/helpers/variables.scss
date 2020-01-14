@@ -1,8 +1,10 @@
 // variables
-$mainColor: #444;
-$mainBackground: #fff;
+$mainColor: #0e1a35;
+$mainBackground: #f6f7fa;
 
-$purple: #41228e;
+$gray: #8492af;
+$grayLight: #d4d9e3;
+$blue: #5584ff;
 
 $container: 1170px;
 $colGups: 15px;
@@ -12,11 +14,11 @@ $linkColor: blue;
 
 $breakpoints: (
     xs: 0,
-    sm: 575px,
+    sm: 320px,
     md: 768px,
     lg: 1025px,
     xl: 1200px,
     xxl: 1440px
 );
 
-$primaryColor: $purple;
+$primaryColor: $gray;

@@ -1,9 +1,6 @@
 {
 	"menu": [
-		["Home", "/"]
-		, ["About", "#"]
-		, ["Blog", "#"]
-		, ["Portfolio", "#"]
-		, ["Contact", "#"]
+		["Register", "#", "icon-user-plus"]
+		, ["Login", "#", "icon-login"]
 	]
 }
