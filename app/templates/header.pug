@@ -1,26 +1,26 @@
 .main-menu-wrap
-  header.ba-header.col-12.col-md-2
+  header.col-12.col-md-4.col-lg-2.ba-header
     div
       .ba-header-top
         a.ba-logo(href='#')
           img.ba-logo__img(src="images/ba-logo-img.png", alt="logo")
           = 'merkury'
-        .ba-notification-wrap
+        .ba-notification-wrap.hidden-md
           button.icon-message(aria-label="new messages")
           button.icon-notify(aria-label="new notifications")
-        button.ba-menu-btn.icon-menu(aria-label='show menu')
-        nav
-          ul.ba-menu
-            li.ba-menu__item.ba-menu__item-user.hidden-md
-              .ba-user
-                a.ba-user__link(href="#")
-                  img.ba-user__photo(src="images/user.png" alt="John")
-                  span Hello, John!
-                button#showUserMenu.icon-down-dir(aria-label='show user menu')
-            -var menuList = sidemenu
-            each menuItem, index in menuList
-              li.ba-menu__item
-                a.hidden-before-sm.ba-menu__link(href='#'+menuItem[1])
-                  span(class=''+menuItem[2])
-                  =menuItem[0]
+        button.ba-menu-btn.icon-menu.hidden-md(aria-label='show menu')
+      nav
+        ul.ba-menu
+          li.ba-menu__item.ba-menu__item-user.hidden-md
+            .ba-user
+              a.ba-user__link(href="#")
+                img.ba-user__photo(src="images/user.png" alt="John")
+                span.sayHi Hello, John!
+              button#showUserMenu.icon-down-dir(aria-label='show user menu')
+          -var menuList = sidemenu
+          each menuItem, index in menuList
+            li.ba-menu__item
+              a.ba-menu__link(href='#'+menuItem[1])
+                span(class=''+menuItem[2])
+                =menuItem[0]
             

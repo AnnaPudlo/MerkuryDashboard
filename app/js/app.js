@@ -15,3 +15,17 @@ $(form).on('submit', function(e) {
     };
   });
 });
+
+$(document).ready(function () {
+  $('.ba-menu-btn').on('click', function () {
+      $('.ba-menu').toggle();
+  })
+
+  $(window).on('resize', function () {
+      if ($(this).width() > 768) {
+          $('.ba-menu').show();
+      } else {
+          $('.ba-menu').hide();
+      }
+  })
+});
