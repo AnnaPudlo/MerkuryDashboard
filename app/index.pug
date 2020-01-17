@@ -2,18 +2,18 @@ include templates/head.pug
 
 .content-big
   .col-12.col-md-8.content-wrap
-    header.ba-header
-      .ba-header__container
+    header.ba-start-header
+      .ba-start-header__container
         a.ba-logo(href='#')
           img.ba-logo__img(src="images/ba-logo-img.png", alt="logo")
           = 'merkury'
         nav
-          ul.menu
-            -var menuList = menu
+          ul.ba-start-menu
+            -var menuList = startmenu
             each menuItem, index in menuList
-              li.menu__item
-                a.hidden-before-sm.menu__link(href='#'+menuItem[1])=menuItem[0]
-                a.hidden-sm.menu__link(href='#'+menuItem[1])
+              li.ba-start-menu__item
+                a.hidden-before-sm.ba-start-menu__link(href='#'+menuItem[1])=menuItem[0]
+                a.hidden-sm.ba-start-menu__link(href='#'+menuItem[1])
                   span(class=''+menuItem[2])
     main
       .ba-form__container

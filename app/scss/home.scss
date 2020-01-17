@@ -27,28 +27,8 @@
     background-color: $mainBackground;
 }
 
-.ba-header {
+.ba-start-header {
     color: #fff;
-
-    .ba-logo {
-        text-decoration: none;
-        color: inherit;
-        display: flex;
-        align-items: center;
-        font-size: 1.5rem;
-        text-transform: capitalize;
-        font-weight: 500;
-
-        &__img {
-            margin-right: 1rem;
-            width: 40px;
-            height: 40px;
-            animation-name: rotate360;
-            animation-duration: 2s;
-            animation-iteration-count: infinite;
-            animation-timing-function: linear;
-        }
-    }
 
     &__container {
         display: flex;
@@ -62,6 +42,26 @@
             padding: 2rem;
             height: 90px;
         }
+    }
+}
+
+.ba-logo {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    font-weight: 500;
+
+    &__img {
+        margin-right: 1rem;
+        width: 40px;
+        height: 40px;
+        animation-name: rotate360;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
     }
 }
 

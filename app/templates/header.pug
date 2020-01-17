@@ -1,9 +1,26 @@
-//- header.ba-header
-//-   .container.ba-header__container
-//-     a.ba-logo(href='#') kross
-//-     nav
-//-       ul.menu
-//-         -var menuList = menu
-//-         each menuItem, index in menuList
-//-           li.menu__item
-//-             a.menu__link(href='#'+menuItem[1])=menuItem[0]
+.main-menu-wrap
+  header.ba-header.col-12.col-md-2
+    div
+      .ba-header-top
+        a.ba-logo(href='#')
+          img.ba-logo__img(src="images/ba-logo-img.png", alt="logo")
+          = 'merkury'
+        .ba-notification-wrap
+          button.icon-message(aria-label="new messages")
+          button.icon-notify(aria-label="new notifications")
+        button.ba-menu-btn.icon-menu(aria-label='show menu')
+        nav
+          ul.ba-menu
+            li.ba-menu__item.ba-menu__item-user.hidden-md
+              .ba-user
+                a.ba-user__link(href="#")
+                  img.ba-user__photo(src="images/user.png" alt="John")
+                  span Hello, John!
+                button#showUserMenu.icon-down-dir(aria-label='show user menu')
+            -var menuList = sidemenu
+            each menuItem, index in menuList
+              li.ba-menu__item
+                a.hidden-before-sm.ba-menu__link(href='#'+menuItem[1])
+                  span(class=''+menuItem[2])
+                  =menuItem[0]
+            

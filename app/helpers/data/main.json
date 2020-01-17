@@ -1,6 +1,15 @@
 {
-	"menu": [
-		["Register", "#", "icon-user-plus"]
-		, ["Login", "#", "icon-login"]
+	"startmenu": [
+		["Register", "#", "icon-user-plus"],
+		["Login", "#", "icon-login"]
+	],
+
+	"sidemenu": [
+		["Home", "#", "icon-home"],
+		["Workflow", "#", "icon-workflow"],
+		["Statistics", "#", "icon-stats"],
+		["Calendar", "#", "icon-calendar"],
+		["Users", "#", "icon-user2"],
+		["Settings", "#", "icon-settings"]
 	]
 }
