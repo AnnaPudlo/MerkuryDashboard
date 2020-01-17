@@ -19,11 +19,11 @@ include templates/head.pug
       h1.ba-title Welcome 
         span.blue back
         = '!'
-      form.ba-form(action="#")
+      form.ba-form(action="#" method="POST" id="ba-form")
         label.ba-label.icon-user
-          input.ba-input__login(type="text", name="ba-login", placeholder="Username")
+          input.ba-input__login(type="text", id="ba-login" name="ba-login", placeholder="Username")
         label.ba-label.icon-lock
-          input.ba-input__password(type="password", name="ba-password", placeholder="Password")
-        button.ba-btn__submit(type="submit", name="ba-submit") Enter
+          input.ba-input__password(type="password", id="ba-password" name="ba-password", placeholder="Password")
+        button.ba-btn__submit(type="submit", id="submitBtn" name="ba-submit") Enter
 
 include templates/footer.pug
