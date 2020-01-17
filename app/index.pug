@@ -1,29 +1,30 @@
 include templates/head.pug
 
-.col-12.col-md-8.content-wrap
-  header.ba-header
-    .ba-header__container
-      a.ba-logo(href='#')
-        img.ba-logo__img(src="images/ba-logo-img.png", alt="logo")
-        = 'merkury'
-      nav
-        ul.menu
-          -var menuList = menu
-          each menuItem, index in menuList
-            li.menu__item
-              a.hidden-before-sm.menu__link(href='#'+menuItem[1])=menuItem[0]
-              a.hidden-sm.menu__link(href='#'+menuItem[1])
-                span(class=''+menuItem[2])
-  main
-    .ba-form__container
-      h1.ba-title Welcome 
-        span.blue back
-        = '!'
-      form.ba-form(action="#" method="POST" id="ba-form")
-        label.ba-label.icon-user
-          input.ba-input__login(type="text", id="ba-login" name="ba-login", placeholder="Username")
-        label.ba-label.icon-lock
-          input.ba-input__password(type="password", id="ba-password" name="ba-password", placeholder="Password")
-        button.ba-btn__submit(type="submit", id="submitBtn" name="ba-submit") Enter
+.content-big
+  .col-12.col-md-8.content-wrap
+    header.ba-header
+      .ba-header__container
+        a.ba-logo(href='#')
+          img.ba-logo__img(src="images/ba-logo-img.png", alt="logo")
+          = 'merkury'
+        nav
+          ul.menu
+            -var menuList = menu
+            each menuItem, index in menuList
+              li.menu__item
+                a.hidden-before-sm.menu__link(href='#'+menuItem[1])=menuItem[0]
+                a.hidden-sm.menu__link(href='#'+menuItem[1])
+                  span(class=''+menuItem[2])
+    main
+      .ba-form__container
+        h1.ba-title Welcome 
+          span.blue back
+          = '!'
+        form.ba-form(action="#" method="POST" id="ba-form")
+          label.ba-label.icon-user
+            input.ba-input__login(type="text", id="ba-login" name="ba-login", placeholder="Username")
+          label.ba-label.icon-lock
+            input.ba-input__password(type="password", id="ba-password" name="ba-password", placeholder="Password")
+          button.ba-btn__submit(type="submit", id="submitBtn" name="ba-submit") Enter
 
 include templates/footer.pug
