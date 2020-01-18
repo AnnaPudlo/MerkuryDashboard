@@ -17,7 +17,7 @@ $columns: 12;
         }
 
         .hidden-#{$name} {
-            display: none !important;
+            display: none;
         }
 
         @for $i from 1 through $columns {

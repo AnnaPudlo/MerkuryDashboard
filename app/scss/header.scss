@@ -19,10 +19,14 @@
         height: 75px;
         border-bottom: 1px solid #0d172f;
 
+        @media screen and (max-width: 320px) {
+            padding: 0 0.5rem;
+        }
+
 
         .ba-notification-wrap {
             margin-left: auto;
-            margin-right: 1.5rem;
+            margin-right: 0.5rem;
             
             button {
                 background: none;
@@ -52,9 +56,58 @@
     &__photo {
         display: inline-block;
         border-radius: 50%;
-        margin-right: 0.5rem;
         overflow: hidden;
         width: 35px;
         height: 35px;
     }
+}
+
+.ba-toolbar {
+    background-color: #fff;
+    
+    &-wrap {
+        height: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 2px solid #ebedf2;
+        padding: 0 1.5rem;
+
+        .left, .right {
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+.ba-search {
+    display: flex;
+    align-items: center;
+
+    &-form {
+        display: none;
+    }
+}
+
+.ba-btn{
+    background: none;
+    border: none;
+    margin: 0 0.5rem;
+    
+    &[class*='icon-'] {
+        color: inherit;
+    }
+
+    &__addproject {
+        height: 30px;
+        width: 100px;
+        background-color: $blue;
+        border-radius: 15px;
+        color: #fff;
+        font-size: 0.675rem;
+    }
+}
+
+.ba-notification-wrap {
+    margin: 0 1rem;
 }

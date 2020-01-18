@@ -14,8 +14,8 @@
   <div class="col-12 col-md-4 col-lg-2 ba-header">
     <div class="ba-header-top"><a class="ba-logo" href="#"><img class="ba-logo__img" src="images/ba-logo-img.png" alt="logo">merkury</a>
       <div class="ba-notification-wrap hidden-md">
-        <button class="icon-message" aria-label="new messages"></button>
-        <button class="icon-notify" aria-label="new notifications"></button>
+        <button class="ba-btn icon-message" aria-label="new messages"></button>
+        <button class="ba-btn icon-notify" aria-label="new notifications"></button>
       </div>
       <button class="ba-menu-btn icon-menu hidden-md" aria-label="show menu"></button>
     </div>
@@ -23,7 +23,7 @@
       <ul class="ba-menu">
         <li class="ba-menu__item ba-menu__item-user hidden-md">
           <div class="ba-user"><a class="ba-user__link" href="#"><img class="ba-user__photo" src="images/user.png" alt="John"><span class="sayHi">Hello, John!</span></a>
-            <button class="showUserMenu icon-down-dir" aria-label="show user menu"></button>
+            <button class="ba-btn showUserMenu icon-down-dir" aria-label="show user menu"></button>
           </div>
         </li>
         <li class="ba-menu__item"><a class="ba-menu__link" href="##"><span class="icon-home"></span>Home</a></li>
@@ -37,21 +37,25 @@
   </div>
   <div class="col-12 col-md-8 col-lg-10 ba-toolbar">
     <div class="ba-toolbar-wrap row">
-      <button class="ba-btn icon-menu hidden-before-md" aria-label="show menu"></button>
-      <div class="ba-search">
-        <button class="ba-btn icon-search" id="showSearch"></button>
-        <form class="ba-search-form" action="#">
-          <input class="ba-search__input" type="search" name="ba-search__input" placeholder="Search">
-          <button class="ba-search__btn icon-search"></button>
-        </form>
+      <div class="left">
+        <button class="ba-btn ba-menu-btn__main icon-menu hidden-before-md" aria-label="show menu"></button>
+        <div class="ba-search">
+          <button class="ba-btn icon-search" id="showSearch"></button>
+          <form class="ba-search-form" action="#">
+            <input class="ba-search__input" type="search" name="ba-search__input" placeholder="Search">
+            <button class="ba-btn ba-search__btn icon-search"></button>
+          </form>
+        </div>
       </div>
-      <button class="ba-btn ba-btn__addproject">Add project</button>
-      <div class="ba-notification-wrap hidden-before-md">
-        <button class="icon-message" aria-label="new messages"></button>
-        <button class="icon-notify" aria-label="new notifications"></button>
-      </div>
-      <div class="ba-user hidden-before-md"><a class="ba-user__link" href="#"><img class="ba-user__photo" src="images/user.png" alt="John"></a>
-        <button class="showUserMenu icon-down-dir" aria-label="show user menu"></button>
+      <div class="right">
+        <button class="ba-btn ba-btn__addproject">+ Add project</button>
+        <div class="ba-notification-wrap hidden-before-md">
+          <button class="ba-btn icon-message" aria-label="new messages"></button>
+          <button class="ba-btn icon-notify" aria-label="new notifications"></button>
+        </div>
+        <div class="ba-user hidden-before-md"><a class="ba-user__link" href="#"><img class="ba-user__photo" src="images/user.png" alt="John"></a>
+          <button class="showUserMenu icon-down-dir" aria-label="show user menu"></button>
+        </div>
       </div>
     </div>
   </div>
