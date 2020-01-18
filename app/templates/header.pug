@@ -1,26 +1,40 @@
-.main-menu-wrap
-  header.col-12.col-md-4.col-lg-2.ba-header
-    div
-      .ba-header-top
-        a.ba-logo(href='#')
-          img.ba-logo__img(src="images/ba-logo-img.png", alt="logo")
-          = 'merkury'
-        .ba-notification-wrap.hidden-md
-          button.icon-message(aria-label="new messages")
-          button.icon-notify(aria-label="new notifications")
-        button.ba-menu-btn.icon-menu.hidden-md(aria-label='show menu')
-      nav
-        ul.ba-menu
-          li.ba-menu__item.ba-menu__item-user.hidden-md
-            .ba-user
-              a.ba-user__link(href="#")
-                img.ba-user__photo(src="images/user.png" alt="John")
-                span.sayHi Hello, John!
-              button#showUserMenu.icon-down-dir(aria-label='show user menu')
-          -var menuList = sidemenu
-          each menuItem, index in menuList
-            li.ba-menu__item
-              a.ba-menu__link(href='#'+menuItem[1])
-                span(class=''+menuItem[2])
-                =menuItem[0]
-            
+header.main-menu-wrap
+  .col-12.col-md-4.col-lg-2.ba-header
+    .ba-header-top
+      a.ba-logo(href='#')
+        img.ba-logo__img(src="images/ba-logo-img.png", alt="logo")
+        = 'merkury'
+      .ba-notification-wrap.hidden-md
+        button.icon-message(aria-label="new messages")
+        button.icon-notify(aria-label="new notifications")
+      button.ba-menu-btn.icon-menu.hidden-md(aria-label='show menu')
+    nav
+      ul.ba-menu
+        li.ba-menu__item.ba-menu__item-user.hidden-md
+          .ba-user
+            a.ba-user__link(href="#")
+              img.ba-user__photo(src="images/user.png" alt="John")
+              span.sayHi Hello, John!
+            button.showUserMenu.icon-down-dir(aria-label='show user menu')
+        -var menuList = sidemenu
+        each menuItem, index in menuList
+          li.ba-menu__item
+            a.ba-menu__link(href='#'+menuItem[1])
+              span(class=''+menuItem[2])
+              =menuItem[0]
+  .col-12.col-md-8.col-lg-10.ba-toolbar
+    .ba-toolbar-wrap.row
+      button.ba-btn.icon-menu.hidden-before-md(aria-label='show menu')
+      .ba-search
+        button#showSearch.ba-btn.icon-search
+        form.ba-search-form(action="#")
+          input.ba-search__input(type="search", name="ba-search__input", placeholder="Search")
+          button.ba-search__btn.icon-search
+      button.ba-btn.ba-btn__addproject Add project
+      .ba-notification-wrap.hidden-before-md
+        button.icon-message(aria-label="new messages")
+        button.icon-notify(aria-label="new notifications")
+      .ba-user.hidden-before-md
+        a.ba-user__link(href="#")
+          img.ba-user__photo(src="images/user.png" alt="John")
+        button.showUserMenu.icon-down-dir(aria-label='show user menu')
