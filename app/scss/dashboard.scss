@@ -1,0 +1,18 @@
+.ba-main{
+    position: absolute;
+    right: 0;
+    background-color: $mainBackground;
+    @media screen and (min-width: 769px){
+        top: 75px;
+    }
+    
+    // & * {
+    //   border: 1px dotted red;
+    // }
+}
+
+.ba-review-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
