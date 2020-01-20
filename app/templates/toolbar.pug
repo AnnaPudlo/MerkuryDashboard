@@ -1,0 +1,17 @@
+.ba-toolbar-wrap.row
+  .left
+    button.ba-btn.ba-menu-btn__main.icon-menu.hidden-before-md(aria-label='show menu')
+    .ba-search
+      button#showSearch.ba-btn.icon-search
+      form.ba-search-form(action="#")
+        input.ba-search__input(type="search", name="ba-search__input", placeholder="Search")
+        button.ba-btn.ba-search__btn.icon-search
+  .right
+    button.ba-btn.ba-btn__addproject + Add project
+    .ba-notification-wrap.hidden-before-md
+      button.ba-btn.icon-message(aria-label="new messages")
+      button.ba-btn.icon-notify(aria-label="new notifications")
+    .ba-user.hidden-before-md
+      a.ba-user__link(href="#")
+        img.ba-user__photo(src="images/user.png" alt="John")
+      button.showUserMenu.icon-down-dir(aria-label='show user menu')

@@ -41,18 +41,17 @@ let dataset = [
   { label: 'E-Commerce', count: 19 }
 ];
 
-let width = 360;
-let height = 180;
+let width = 720;
+let height = 360;
 let radius = Math.min(width, height) / 2;
-let donutWidth = 35;
-let legendRectSize = 18;
-let legendSpacing = 4;
+let donutWidth = 70;
+let legendRectSize = 36;
+let legendSpacing = 8;
 
 let color = d3.scaleOrdinal().domain(dataset.length)
   .range(["#4b74e0", "#4164c2", "#3755a4", "#25396e", "#5584ff"])
 
-let svg = d3.select('#ba-sales-chart')
-  .append('svg')
+let svg = d3.select('#ba-sales-chart svg')
   .attr('width', width)
   .attr('height', height)
   .append('g')
@@ -107,12 +106,12 @@ svg.append('text')
 //======= end sales chart =======//
 
 //======= start report chart =======//
-let margin = { top: 10, right: 30, bottom: 30, left: 60 };
-let reportWidth = 460 - margin.left - margin.right;
-let reportHeight = 200 - margin.top - margin.bottom;
+// let margin = { top: 10, right: 20, bottom: 20, left: 40 };
+let margin = { top: 0, right: 0, bottom: 0, left: 20 };
+let reportWidth = 768 - margin.left - margin.right;
+let reportHeight = 400 - margin.top - margin.bottom;
 
-let reportSvg = d3.select("#ba-report-chart")
-  .append("svg")
+let reportSvg = d3.select("#ba-report-chart svg")
   .attr("width", reportWidth + margin.left + margin.right)
   .attr("height", reportHeight + margin.top + margin.bottom)
   .append("g")
@@ -151,7 +150,8 @@ reportSvg.append("g")
 
 let gridlinesV = d3.axisBottom()
   .tickFormat("")
-  .tickSize(reportHeight)
+  .tickSizeInner(reportHeight)
+  .tickSizeOuter(0)
   .scale(reportX);
 
 reportSvg.append("g")
@@ -165,8 +165,9 @@ reportSvg.append("g").call(d3.axisLeft(reportY).ticks(5).tickSize(0));
 
 let gridlinesH = d3.axisRight()
   .ticks(5)
+  .tickSizeOuter(0)
   .tickFormat("")
-  .tickSize(reportWidth)
+  .tickSizeInner(reportWidth)
   .scale(reportY);
 
 reportSvg.append("g")

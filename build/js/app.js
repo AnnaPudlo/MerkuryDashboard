@@ -46,14 +46,14 @@ var dataset = [{
   label: 'E-Commerce',
   count: 19
 }];
-var width = 360;
-var height = 180;
+var width = 720;
+var height = 360;
 var radius = Math.min(width, height) / 2;
-var donutWidth = 35;
-var legendRectSize = 18;
-var legendSpacing = 4;
+var donutWidth = 70;
+var legendRectSize = 36;
+var legendSpacing = 8;
 var color = d3.scaleOrdinal().domain(dataset.length).range(["#4b74e0", "#4164c2", "#3755a4", "#25396e", "#5584ff"]);
-var svg = d3.select('#ba-sales-chart').append('svg').attr('width', width).attr('height', height).append('g').attr('transform', 'translate(' + width / 4 + ',' + height / 2 + ')');
+var svg = d3.select('#ba-sales-chart svg').attr('width', width).attr('height', height).append('g').attr('transform', 'translate(' + width / 4 + ',' + height / 2 + ')');
 var arc = d3.arc().innerRadius(radius - donutWidth).outerRadius(radius);
 var pie = d3.pie().value(function (d) {
   return d.count;
@@ -74,16 +74,17 @@ legend.append('text').attr('x', legendRectSize + legendSpacing).attr('y', legend
 });
 svg.append('text').attr('x', 0).attr('y', 0).text('1,560 sales'); //======= end sales chart =======//
 //======= start report chart =======//
+// let margin = { top: 10, right: 20, bottom: 20, left: 40 };
 
 var margin = {
-  top: 10,
-  right: 30,
-  bottom: 30,
-  left: 60
+  top: 0,
+  right: 0,
+  bottom: 0,
+  left: 20
 };
-var reportWidth = 460 - margin.left - margin.right;
-var reportHeight = 200 - margin.top - margin.bottom;
-var reportSvg = d3.select("#ba-report-chart").append("svg").attr("width", reportWidth + margin.left + margin.right).attr("height", reportHeight + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+var reportWidth = 768 - margin.left - margin.right;
+var reportHeight = 400 - margin.top - margin.bottom;
+var reportSvg = d3.select("#ba-report-chart svg").attr("width", reportWidth + margin.left + margin.right).attr("height", reportHeight + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 var reportData = [{
   date: "2019-01-01",
   value: 300
@@ -138,11 +139,11 @@ var reportX = d3.scaleTime().domain(d3.extent(reportData, function (d) {
   return d.date;
 })).range([0, reportWidth]);
 reportSvg.append("g").attr("transform", "translate(0," + reportHeight + ")").call(d3.axisBottom(reportX).ticks(12).tickSize(0).tickFormat(""));
-var gridlinesV = d3.axisBottom().tickFormat("").tickSize(reportHeight).scale(reportX);
+var gridlinesV = d3.axisBottom().tickFormat("").tickSizeInner(reportHeight).tickSizeOuter(0).scale(reportX);
 reportSvg.append("g").attr("class", "gridV").call(gridlinesV);
 var reportY = d3.scaleLinear().domain([100, 790]).range([reportHeight, 0]);
 reportSvg.append("g").call(d3.axisLeft(reportY).ticks(5).tickSize(0));
-var gridlinesH = d3.axisRight().ticks(5).tickFormat("").tickSize(reportWidth).scale(reportY);
+var gridlinesH = d3.axisRight().ticks(5).tickSizeOuter(0).tickFormat("").tickSizeInner(reportWidth).scale(reportY);
 reportSvg.append("g").attr("class", "gridH").call(gridlinesH);
 reportSvg.append("path").datum(reportData).attr("fill", "none").attr("stroke", "blue").attr("stroke-width", 1.5).attr("d", d3.line().curve(d3.curveBasis).x(function (d) {
   return reportX(d.date);
