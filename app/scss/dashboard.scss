@@ -1,17 +1,86 @@
-.ba-content{
-    background-color: $mainBackground;
+.ba-hero {
+    background-color: transparent;
+    padding: 1rem 2rem;
+
+    &-title {
+        font-size: 1.675rem;
+        font-weight: 500;
+        color: $mainColor;
+        margin: 0;
+    }
 }
 
 .ba-review-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.ba-section {
+    margin-bottom: 2rem;
+    background-color: #fff;
+    border: 1px solid $greyBorders;
+
+    &-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+
+    &-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: $gray;
+
+        &_small {
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+    }
+}
+
+.ba-form {
+    width: 125px;
+    height: 30px;
+    border: 1px solid $greyBorders;
+    border-radius: 15px;
+    font-size: 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $gray;
+}
+
+.ba-select {
+    border: none;
+    color: $mainColor;
+    min-width: 70px;
+
+    &-wrap {
+        position: relative;
+
+        & .ba-select-arrow {
+            position: absolute;
+            top: 1px;
+            bottom: 1px;
+            right: 1px;
+            width: 15px;
+            background-color: #fff;
+            display: block;
+            pointer-events: none;
+            text-align: center;
+            // padding-top: 2px;
+            font-size: 0.875rem;
+        }
+    }
 }
 
 .ba-chart {
-  height: 300px;
-  &__svg {
-    max-width: 100%;
-    height: 100%;
-  }
+    height: 30vh;
+
+    &__svg {
+        max-width: 100%;
+        height: 100%;
+    }
 }

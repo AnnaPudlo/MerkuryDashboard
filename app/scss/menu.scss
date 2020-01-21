@@ -39,7 +39,7 @@
 
     &__item {
         position: relative;
-        border-bottom: 1px solid #0d172f;
+        border-bottom: 1px solid $blueBorders;
         
         &:before {
             content: '';

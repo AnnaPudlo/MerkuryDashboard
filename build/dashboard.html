@@ -59,54 +59,68 @@
             </div>
           </div>
         </div>
-        <div class="ba-content row">
-          <section class="ba-hero">
-            <h1 class="ba-hero-title">Hello, John!</h1>
-          </section>
-          <div class="ba-review-wrap">
-            <section class="col-12 col-md-5 ba-sales">
+        <section class="ba-hero row">
+          <h1 class="ba-hero-title">Hello, John!</h1>
+        </section>
+        <div class="row ba-review-wrap">
+          <div class="col-12 col-md-5">
+            <section class="ba-section ba-section-sales">
               <div class="ba-section-header">
                 <h2 class="ba-section-title">Your sales</h2>
-                <form class="ba-sales-form">
-                  <label for="#ba-sales__select">Period</label>
-                  <select class="ba-sales__select" id="ba-sales__select">
-                    <option class="ba-sales-option" value="last year">last year</option>
-                    <option class="ba-sales-option" value="2018">2018</option>
-                    <option class="ba-sales-option" value="2017">2017</option>
-                  </select>
+                <form class="ba-form ba-sales-form">
+                  <label for="#ba-sales__select">Period:</label>
+                  <div class="ba-select-wrap">
+                    <div class="ba-select-arrow icon-angle-down"></div>
+                    <select class="ba-select" id="ba-sales__select">
+                      <option class="ba-sales-option" value="last year">last year</option>
+                      <option class="ba-sales-option" value="2018">2018</option>
+                      <option class="ba-sales-option" value="2017">2017</option>
+                    </select>
+                  </div>
                 </form>
               </div>
               <div class="ba-chart" id="ba-sales-chart">
                 <svg class="ba-chart__svg" viewbox="0 0 720 360"></svg>
               </div>
             </section>
-            <section class="col-12 col-md-7 ba-report">
+          </div>
+          <div class="col-12 col-md-7">
+            <section class="ba-section ba-section-report">
               <div class="ba-section-header">
                 <h2 class="ba-section-title">Report</h2>
-                <form class="ba-report-form">
-                  <label for="#ba-report__select">Period</label>
-                  <select class="ba-report__select" id="ba-report__select">
-                    <option class="ba-sales-option" value="last year">last year</option>
-                    <option class="ba-sales-option" value="2018">2018</option>
-                    <option class="ba-sales-option" value="2017">2017</option>
-                  </select>
+                <form class="ba-form ba-report-form">
+                  <label for="#ba-report__select">Period:</label>
+                  <div class="ba-select-wrap">
+                    <div class="ba-select-arrow icon-angle-down"></div>
+                    <select class="ba-select" id="ba-report__select">
+                      <option class="ba-sales-option" value="last year">last year</option>
+                      <option class="ba-sales-option" value="2018">2018</option>
+                      <option class="ba-sales-option" value="2017">2017</option>
+                    </select>
+                  </div>
                 </form>
               </div>
               <div class="ba-chart" id="ba-report-chart">
                 <svg class="ba-chart__svg" viewbox="0 0 820 430"></svg>
               </div>
             </section>
-            <section class="col-12 col-md-4 ba-tasks">
+          </div>
+          <div class="col-12 col-md-4">
+            <section class="ba-section ba-section-tasks">
               <div class="ba-section-header">
                 <h2 class="ba-section-title_small">Tasks</h2>
               </div>
             </section>
-            <section class="col-12 col-md-4 ba-messages">
+          </div>
+          <div class="col-12 col-md-4">
+            <section class="ba-section ba-section-messages">
               <div class="ba-section-header">
                 <h2 class="ba-section-title_small">Messages</h2>
               </div>
             </section>
-            <section class="col-12 col-md-4 ba-activities">
+          </div>
+          <div class="col-12 col-md-4">
+            <section class="ba-section ba-section-activities">
               <div class="ba-section-header">
                 <h2 class="ba-section-title_small">Activities</h2>
               </div>

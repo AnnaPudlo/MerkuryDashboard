@@ -6,39 +6,47 @@ block content
     main.col-12.col-md-8.col-lg-10.ba-main
       include templates/toolbar.pug
       
-      .ba-content.row
-        section.ba-hero
-          h1.ba-hero-title Hello, John!
-        .ba-review-wrap
-          section.col-12.col-md-5.ba-sales
+      section.ba-hero.row
+        h1.ba-hero-title Hello, John!
+      .row.ba-review-wrap
+        .col-12.col-md-5
+          section.ba-section.ba-section-sales
             .ba-section-header
               h2.ba-section-title Your sales
-              form.ba-sales-form
-                label(for="#ba-sales__select") Period
-                select#ba-sales__select.ba-sales__select
-                  -var salesData = salesFiles
-                  each salesPeriod in salesData
-                    option.ba-sales-option(value=salesPeriod[0])=salesPeriod[0]
+              form.ba-form.ba-sales-form
+                label(for="#ba-sales__select") Period:
+                .ba-select-wrap
+                  .ba-select-arrow.icon-angle-down
+                  select#ba-sales__select.ba-select
+                    -var salesData = salesFiles
+                    each salesPeriod in salesData
+                      option.ba-sales-option(value=salesPeriod[0])=salesPeriod[0]
             div#ba-sales-chart.ba-chart
               svg.ba-chart__svg(viewbox = "0 0 720 360")
-          section.col-12.col-md-7.ba-report
+        .col-12.col-md-7
+          section.ba-section.ba-section-report
             .ba-section-header
               h2.ba-section-title Report
-              form.ba-report-form
-                label(for="#ba-report__select") Period
-                select#ba-report__select.ba-report__select
-                  -var reportData = reportFiles
-                  each reportPeriod in reportData
-                    option.ba-sales-option(value=reportPeriod[0])=reportPeriod[0]
+              form.ba-form.ba-report-form
+                label(for="#ba-report__select") Period:
+                .ba-select-wrap
+                  .ba-select-arrow.icon-angle-down
+                  select#ba-report__select.ba-select
+                    -var reportData = reportFiles
+                    each reportPeriod in reportData
+                      option.ba-sales-option(value=reportPeriod[0])=reportPeriod[0]
             div#ba-report-chart.ba-chart
               svg.ba-chart__svg(viewbox = "0 0 820 430")
-          section.col-12.col-md-4.ba-tasks
+        .col-12.col-md-4
+          section.ba-section.ba-section-tasks
             .ba-section-header
               h2.ba-section-title_small Tasks
-          section.col-12.col-md-4.ba-messages
+        .col-12.col-md-4
+          section.ba-section.ba-section-messages
             .ba-section-header
               h2.ba-section-title_small Messages
-          section.col-12.col-md-4.ba-activities
+        .col-12.col-md-4
+          section.ba-section.ba-section-activities
             .ba-section-header
               h2.ba-section-title_small Activities
 

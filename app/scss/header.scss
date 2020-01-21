@@ -8,19 +8,19 @@
     color: #fff;
     padding: 0;
 
-    @media screen and (min-width: 769px) {
+    @media screen and (min-width: 768px) {
         height: 100vh;
     }
 
     &-top {
         display: flex;
         align-items: center;
-        padding: 0 2rem;
-        height: 75px;
-        border-bottom: 1px solid #0d172f;
+        padding: 0 0.5rem;
+        height: 9vh;
+        border-bottom: 1px solid $blueBorders;
 
-        @media screen and (max-width: 320px) {
-            padding: 0 0.5rem;
+        @media screen and (min-width: 321px) {
+            padding: 0 2rem;
         }
 
 
@@ -63,16 +63,21 @@
 }
 
 .ba-main {
-    background-color: #fff;
+    background-color: $mainBackground;
+    @media screen and (min-width: 768px) {
+        height: 100vh;
+    }
 }
 
 .ba-toolbar {
-    height: 75px;
+    background-color: #fff;
+    height: 9vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 2px solid #ebedf2;
+    border-bottom: 2px solid $greyBorders;
     padding: 0 1.5rem;
+    color: $mainColor;
 
     .left, .right {
         display: flex;

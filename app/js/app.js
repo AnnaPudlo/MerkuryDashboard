@@ -1,7 +1,7 @@
 let btn = document.getElementById('submitBtn');
 let user = document.getElementById('ba-login');
 let password = document.getElementById('ba-password');
-let form = document.getElementById('ba-form');
+let form = document.getElementById('ba-form-login');
 
 $(form).on('submit', function (e) {
   e.preventDefault();
@@ -28,6 +28,12 @@ $(document).ready(function () {
       $('.ba-menu').hide();
     }
   })
+
+  $('.ba-select').on('click', function () {
+    $(this).prev().toggleClass('icon-angle-down')
+    $(this).prev().toggleClass('icon-angle-up')
+  })
+
 });
 
 //======= start using d3 =======//

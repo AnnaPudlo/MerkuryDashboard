@@ -16,11 +16,11 @@ include templates/head.pug
                 a.hidden-sm.ba-start-menu__link(href='#'+menuItem[1])
                   span(class=''+menuItem[2])
     main
-      .ba-form__container
+      .ba-form-login__container
         h1.ba-title Welcome 
           span.blue back
           = '!'
-        form.ba-form(action="#" method="POST" id="ba-form")
+        form.ba-form-login(action="#" method="POST" id="ba-form-login")
           label.ba-label.icon-user
             input.ba-input__login(type="text", id="ba-login" name="ba-login", placeholder="Username")
           label.ba-label.icon-lock

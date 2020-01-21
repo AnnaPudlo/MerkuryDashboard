@@ -3,7 +3,7 @@
 var btn = document.getElementById('submitBtn');
 var user = document.getElementById('ba-login');
 var password = document.getElementById('ba-password');
-var form = document.getElementById('ba-form');
+var form = document.getElementById('ba-form-login');
 $(form).on('submit', function (e) {
   e.preventDefault();
   fetch('https://jsonplaceholder.typicode.com/users?username=' + user.value + '&email=' + password.value).then(function (response) {
@@ -26,6 +26,10 @@ $(document).ready(function () {
     } else {
       $('.ba-menu').hide();
     }
+  });
+  $('.ba-select').on('click', function () {
+    $(this).prev().toggleClass('icon-angle-down');
+    $(this).prev().toggleClass('icon-angle-up');
   });
 }); //======= start using d3 =======//
 //======= start sales chart =======//
