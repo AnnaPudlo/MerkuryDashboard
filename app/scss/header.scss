@@ -1,7 +1,6 @@
-.main-menu-wrap{
+.main-wrap{
     display: flex;
     flex-wrap: wrap;
-    // position: relative;
 }
 
 .ba-header {
@@ -63,21 +62,21 @@
     }
 }
 
-.ba-toolbar {
+.ba-main {
     background-color: #fff;
-    
-    &-wrap {
-        height: 75px;
+}
+
+.ba-toolbar {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #ebedf2;
+    padding: 0 1.5rem;
+
+    .left, .right {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        border-bottom: 2px solid #ebedf2;
-        padding: 0 1.5rem;
-
-        .left, .right {
-            display: flex;
-            align-items: center;
-        }
     }
 }
 

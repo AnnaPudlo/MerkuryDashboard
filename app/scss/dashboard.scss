@@ -8,13 +8,10 @@
   width: 100%;
 }
 
-#ba-sales-chart,
-#ba-report-chart {
+.ba-chart {
   height: 300px;
-}
-
-#ba-sales-chart svg,
-#ba-report-chart svg {
-  max-width: 100%;
-  height: 100%;
+  &__svg {
+    max-width: 100%;
+    height: 100%;
+  }
 }

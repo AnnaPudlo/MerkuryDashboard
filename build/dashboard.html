@@ -1,91 +1,94 @@
-<!DOCTYPE html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap">
-  <link rel="stylesheet" href="css/fonts.css">
-  <link rel="stylesheet" href="css/app.min.css">
-  <title></title>
-  <link rel="icon" href="favicon.ico">
-</head>
-<body></body>
-<div class="main-menu-wrap">
-  <header class="col-12 col-md-4 col-lg-2 ba-header">
-    <div class="ba-header-top"><a class="ba-logo" href="#"><img class="ba-logo__img" src="images/ba-logo-img.png" alt="logo">merkury</a>
-      <div class="ba-notification-wrap hidden-md">
-        <button class="ba-btn icon-message" aria-label="new messages"></button>
-        <button class="ba-btn icon-notify" aria-label="new notifications"></button>
-      </div>
-      <button class="ba-menu-btn icon-menu hidden-md" aria-label="show menu"></button>
-    </div>
-    <nav>
-      <ul class="ba-menu">
-        <li class="ba-menu__item ba-menu__item-user hidden-md">
-          <div class="ba-user"><a class="ba-user__link" href="#"><img class="ba-user__photo" src="images/user.png" alt="John"><span class="sayHi">Hello, John!</span></a>
-            <button class="ba-btn showUserMenu icon-down-dir" aria-label="show user menu"></button>
+
+<html><!DOCTYPE html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/app.min.css">
+    <title></title>
+    <link rel="icon" href="favicon.ico">
+  </head>
+  <body>
+    <div class="main-wrap">
+      <header class="col-12 col-md-4 col-lg-2 ba-header">
+        <div class="ba-header-top"><a class="ba-logo" href="#"><img class="ba-logo__img" src="images/ba-logo-img.png" alt="logo">merkury</a>
+          <div class="ba-notification-wrap hidden-md">
+            <button class="ba-btn icon-message" aria-label="new messages"></button>
+            <button class="ba-btn icon-notify" aria-label="new notifications"></button>
           </div>
-        </li>
-        <li class="ba-menu__item"><a class="ba-menu__link" href="##"><span class="icon-home"></span>Home</a></li>
-        <li class="ba-menu__item"><a class="ba-menu__link" href="##"><span class="icon-workflow"></span>Workflow</a></li>
-        <li class="ba-menu__item"><a class="ba-menu__link" href="##"><span class="icon-stats"></span>Statistics</a></li>
-        <li class="ba-menu__item"><a class="ba-menu__link" href="##"><span class="icon-calendar"></span>Calendar</a></li>
-        <li class="ba-menu__item"><a class="ba-menu__link" href="##"><span class="icon-user2"></span>Users</a></li>
-        <li class="ba-menu__item"><a class="ba-menu__link" href="##"><span class="icon-settings"></span>Settings</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main class="col-12 col-md-8 col-lg-10 ba-toolbar">
-    <div class="ba-toolbar-wrap row">
-      <div class="left">
-        <button class="ba-btn ba-menu-btn__main icon-menu hidden-before-md" aria-label="show menu"></button>
-        <div class="ba-search">
-          <button class="ba-btn icon-search" id="showSearch"></button>
-          <form class="ba-search-form" action="#">
-            <input class="ba-search__input" type="search" name="ba-search__input" placeholder="Search">
-            <button class="ba-btn ba-search__btn icon-search"></button>
-          </form>
+          <button class="ba-menu-btn icon-menu hidden-md" aria-label="show menu"></button>
         </div>
-      </div>
-      <div class="right">
-        <button class="ba-btn ba-btn__addproject">+ Add project</button>
-        <div class="ba-notification-wrap hidden-before-md">
-          <button class="ba-btn icon-message" aria-label="new messages"></button>
-          <button class="ba-btn icon-notify" aria-label="new notifications"></button>
-        </div>
-        <div class="ba-user hidden-before-md"><a class="ba-user__link" href="#"><img class="ba-user__photo" src="images/user.png" alt="John"></a>
-          <button class="showUserMenu icon-down-dir" aria-label="show user menu"></button>
-        </div>
-      </div>
-    </div>
-    <div class="ba-content">
-      <section class="ba-hero">
-        <h1 class="ba-hero-title">Hello, John!</h1>
-      </section>
-      <div class="ba-review-wrap">
-        <section class="col-12 col-md-5 ba-sales">
-          <h2 class="ba-section-title">Your sales</h2>
-          <div id="ba-sales-chart">
-            <svg viewbox="0 0 720 360"></svg>
+        <nav>
+          <ul class="ba-menu">
+            <li class="ba-menu__item ba-menu__item-user hidden-md">
+              <div class="ba-user"><a class="ba-user__link" href="#"><img class="ba-user__photo" src="images/user.png" alt="John"><span class="sayHi">Hello, John!</span></a>
+                <button class="ba-btn showUserMenu icon-down-dir" aria-label="show user menu"></button>
+              </div>
+            </li>
+            <li class="ba-menu__item"><a class="ba-menu__link" href="##"><span class="icon-home"></span>Home</a></li>
+            <li class="ba-menu__item"><a class="ba-menu__link" href="##"><span class="icon-workflow"></span>Workflow</a></li>
+            <li class="ba-menu__item"><a class="ba-menu__link" href="##"><span class="icon-stats"></span>Statistics</a></li>
+            <li class="ba-menu__item"><a class="ba-menu__link" href="##"><span class="icon-calendar"></span>Calendar</a></li>
+            <li class="ba-menu__item"><a class="ba-menu__link" href="##"><span class="icon-user2"></span>Users</a></li>
+            <li class="ba-menu__item"><a class="ba-menu__link" href="##"><span class="icon-settings"></span>Settings</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main class="col-12 col-md-8 col-lg-10 ba-main">
+        <div class="ba-toolbar row">
+          <div class="left">
+            <button class="ba-btn ba-menu-btn__main icon-menu hidden-before-md" aria-label="show menu"></button>
+            <div class="ba-search">
+              <button class="ba-btn icon-search" id="showSearch"></button>
+              <form class="ba-search-form" action="#">
+                <input class="ba-search__input" type="search" name="ba-search__input" placeholder="Search">
+                <button class="ba-btn ba-search__btn icon-search"></button>
+              </form>
+            </div>
           </div>
-        </section>
-        <section class="col-12 col-md-7 ba-report">
-          <h2 class="ba-section-title">Report</h2>
-          <div id="ba-report-chart">
-            <svg viewbox="0 0 820 430"></svg>
+          <div class="right">
+            <button class="ba-btn ba-btn__addproject">+ Add project</button>
+            <div class="ba-notification-wrap hidden-before-md">
+              <button class="ba-btn icon-message" aria-label="new messages"></button>
+              <button class="ba-btn icon-notify" aria-label="new notifications"></button>
+            </div>
+            <div class="ba-user hidden-before-md"><a class="ba-user__link" href="#"><img class="ba-user__photo" src="images/user.png" alt="John"></a>
+              <button class="showUserMenu icon-down-dir" aria-label="show user menu"></button>
+            </div>
           </div>
-        </section>
-        <section class="col-12 col-md-4 ba-tasks">hi</section>
-        <section class="col-12 col-md-4 ba-messages">hi</section>
-        <section class="col-12 col-md-4 ba-activities">hi</section>
-      </div>
+        </div>
+        <div class="ba-content">
+          <section class="ba-hero">
+            <h1 class="ba-hero-title">Hello, John!</h1>
+          </section>
+          <div class="ba-review-wrap">
+            <section class="col-12 col-md-5 ba-sales">
+              <h2 class="ba-section-title">Your sales</h2>
+              <div class="ba-chart" id="ba-sales-chart">
+                <svg class="ba-chart__svg" viewbox="0 0 720 360"></svg>
+              </div>
+            </section>
+            <section class="col-12 col-md-7 ba-report">
+              <h2 class="ba-section-title">Report</h2>
+              <div class="ba-chart" id="ba-report-chart">
+                <svg class="ba-chart__svg" viewbox="0 0 820 430"></svg>
+              </div>
+            </section>
+            <section class="col-12 col-md-4 ba-tasks">hi</section>
+            <section class="col-12 col-md-4 ba-messages">hi</section>
+            <section class="col-12 col-md-4 ba-activities">hi</section>
+          </div>
+        </div>
+      </main>
     </div>
-  </main>
-</div>
-<footer class="ba-footer"></footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
-<script src="https://d3js.org/d3.v4.js"></script>
-<script src="https://d3js.org/d3-time.v1.min.js"></script>
-<script src="https://d3js.org/d3-time-format.v2.min.js"></script>
-<script src="js/slick.min.js"></script>
-<script src="js/app.js"></script>
+    <footer class="ba-footer"></footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://d3js.org/d3-time.v1.min.js"></script>
+    <script src="https://d3js.org/d3-time-format.v2.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
