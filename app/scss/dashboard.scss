@@ -45,6 +45,78 @@
             font-weight: 500;
         }
     }
+
+    &-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid $greyBorders;
+        padding: 1rem;
+    }
+}
+
+.ba-badge {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: $blue;
+    color: #fff;
+    text-align: center;
+    padding-top: 5px;
+    font-size: 0.875rem;
+
+    & + .ba-badge {
+        margin-left: 0.5rem;
+    }
+
+    &-delayTask {
+        background-color: $pink;
+    }
+
+}
+
+.ba-task {
+
+    &-badge {
+        min-width: 30px;
+        min-height: 30px;
+        width: 30px;
+        height: 30px;
+        padding-top: 6px;
+    }
+
+    &__info {
+        margin-left: 1rem;
+        margin-right: auto;
+    }
+
+    &__title {
+        font-size: 0.75rem;
+        font-weight: 500;
+        margin: 0;
+        color: $mainColor;
+        letter-spacing: 0.01;
+    }
+
+    &__timeline {
+        font-size: 0.55rem;
+        margin: 0.5em 0;
+        color: $gray;
+
+        &_delay {
+            color: $pink;
+        }
+    }
+}
+
+.ba-btn {
+    &__options {
+        &.icon-options {
+            color: $gray;
+            margin: 0;
+        }
+    }
 }
 
 .ba-form {
@@ -87,25 +159,5 @@
     &__svg {
         max-width: 100%;
         height: 100%;
-    }
-}
-
-.ba-badge {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: $blue;
-    color: #fff;
-    text-align: center;
-    padding-top: 7px;
-    font-size: 0.875rem;
-
-    & + .ba-badge {
-        margin-left: 0.5rem;
-    }
-
-    &-delayTask {
-        background-color: $pink;
     }
 }
