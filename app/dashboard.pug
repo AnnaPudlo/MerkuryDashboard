@@ -3,7 +3,7 @@ extends templates/layout.pug
 block content
   .main-wrap
     include templates/header.pug
-    main.col-12.col-md-8.col-lg-10.ba-main
+    main.col-12.col-md-9.col-lg-10.ba-main
       include templates/toolbar.pug
       
       section.ba-hero.row
@@ -39,19 +39,19 @@ block content
               svg.ba-chart__svg(viewbox = "0 0 820 430")
         .col-12.col-md-4
           section.ba-section.ba-section-tasks
-            .ba-section-header
+            .ba-section-header.ba-section-header_bordered
               h2.ba-section-title_small Tasks
               .ba-badges
                 span.ba-badge.ba-badge-newTask 5
                 span.ba-badge.ba-badge-delayTask 2
         .col-12.col-md-4
           section.ba-section.ba-section-messages
-            .ba-section-header
+            .ba-section-header.ba-section-header_bordered
               h2.ba-section-title_small Messages
               span.ba-badge.ba-badge-newTask 2
         .col-12.col-md-4
           section.ba-section.ba-section-activities
-            .ba-section-header
+            .ba-section-header.ba-section-header_bordered
               h2.ba-section-title_small Activities
               span.ba-badge.ba-badge-newTask 10
 

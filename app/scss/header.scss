@@ -8,7 +8,7 @@
     color: #fff;
     padding: 0;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 769px) {
         height: 100vh;
     }
 
@@ -64,7 +64,7 @@
 
 .ba-main {
     background-color: $mainBackground;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 769px) {
         height: 100vh;
     }
 }
