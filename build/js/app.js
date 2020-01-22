@@ -95,7 +95,7 @@ var margin = {
   bottom: 0,
   left: 60
 };
-var reportWidth = 768 - margin.left - margin.right;
+var reportWidth = 1000 - margin.left - margin.right;
 var reportHeight = 400 - margin.top - margin.bottom;
 var reportSvg = d3.select("#ba-report-chart svg").attr("width", reportWidth + margin.left + margin.right).attr("height", reportHeight + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 var reportData = [{

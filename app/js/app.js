@@ -128,7 +128,7 @@ svg.append('text')
 //======= start report chart =======//
 // let margin = { top: 10, right: 20, bottom: 20, left: 40 };
 let margin = { top: 0, right: 0, bottom: 0, left: 60 };
-let reportWidth = 768 - margin.left - margin.right;
+let reportWidth = 1000 - margin.left - margin.right;
 let reportHeight = 400 - margin.top - margin.bottom;
 
 let reportSvg = d3.select("#ba-report-chart svg")
