@@ -3,7 +3,8 @@
 var btn = document.getElementById('submitBtn');
 var user = document.getElementById('ba-login');
 var password = document.getElementById('ba-password');
-var form = document.getElementById('ba-form-login');
+var form = document.getElementById('ba-form-login'); //======= start authorization =======//
+
 $(form).on('submit', function (e) {
   e.preventDefault();
   fetch('https://jsonplaceholder.typicode.com/users?username=' + user.value + '&email=' + password.value).then(function (response) {
@@ -15,8 +16,10 @@ $(form).on('submit', function (e) {
 
     ;
   });
-});
+}); //======= end authorization =======//
+
 $(document).ready(function () {
+  //======= start menu-btn (mobile-first) =======//
   $('.ba-menu-btn').on('click', function () {
     $('.ba-menu').toggle();
   });
@@ -26,11 +29,17 @@ $(document).ready(function () {
     } else {
       $('.ba-menu').hide();
     }
-  });
+  }); //======= end menu-btn (mobile-first) =======//
+
+  $('.ba-menu-btn__main').on('click', function () {
+    $('.ba-header').toggleClass('ba-header--hidden');
+    $('.ba-main').toggleClass('ba-main--full');
+  }); //======= start customize select arrow =======//
+
   $('.ba-select').on('click', function () {
     $(this).prev().toggleClass('icon-angle-down');
     $(this).prev().toggleClass('icon-angle-up');
-  });
+  }); //======= end customize select arrow =======//
 }); //======= start using d3 =======//
 //======= start sales chart =======//
 
@@ -76,7 +85,7 @@ legend.append('circle').attr('cx', legendRectSize / 2).attr('cy', legendRectSize
 legend.append('text').attr('x', legendRectSize + legendSpacing).attr('y', legendRectSize - legendSpacing).text(function (d) {
   return d;
 });
-svg.append('text').attr('x', 0).attr('y', 0).text('1,560 sales'); //======= end sales chart =======//
+svg.append('text').attr('class', 'salesCount').attr('x', 0).attr('y', 0).text('1,560 sales'); //======= end sales chart =======//
 //======= start report chart =======//
 // let margin = { top: 10, right: 20, bottom: 20, left: 40 };
 
@@ -143,7 +152,7 @@ var reportX = d3.scaleTime().domain(d3.extent(reportData, function (d) {
   return d.date;
 })).range([0, reportWidth]);
 reportSvg.append("g").attr("transform", "translate(0," + reportHeight + ")").call(d3.axisBottom(reportX).ticks(12).tickSize(0).tickFormat(""));
-var gridlinesV = d3.axisBottom().tickFormat("").tickSizeInner(reportHeight).tickSizeOuter(0).scale(reportX);
+var gridlinesV = d3.axisBottom().tickFormat("").ticks(12).tickSizeInner(reportHeight).tickSizeOuter(0).scale(reportX);
 reportSvg.append("g").attr("class", "gridV").call(gridlinesV);
 var reportY = d3.scaleLinear().domain([100, 790]).range([reportHeight, 0]);
 reportSvg.append("g").call(d3.axisLeft(reportY).ticks(5).tickSize(0));

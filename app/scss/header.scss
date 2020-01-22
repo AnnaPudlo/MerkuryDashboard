@@ -9,14 +9,19 @@
     padding: 0;
 
     @media screen and (min-width: 769px) {
-        height: 100vh;
+        min-height: 100%;
+
+        &--hidden {
+            position: fixed;
+            transform: translateX(-100%);
+        }
     }
 
     &-top {
         display: flex;
         align-items: center;
         padding: 0 0.5rem;
-        height: 9vh;
+        height: 70px;
         border-bottom: 1px solid $blueBorders;
 
         @media screen and (min-width: 321px) {
@@ -65,13 +70,18 @@
 .ba-main {
     background-color: $mainBackground;
     @media screen and (min-width: 769px) {
-        height: 100vh;
+        min-height: 100%;
+
+        &--full {
+            max-width: none;
+            flex-grow: 1;
+        }
     }
 }
 
 .ba-toolbar {
     background-color: #fff;
-    height: 9vh;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;

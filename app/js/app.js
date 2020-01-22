@@ -3,6 +3,7 @@ let user = document.getElementById('ba-login');
 let password = document.getElementById('ba-password');
 let form = document.getElementById('ba-form-login');
 
+//======= start authorization =======//
 $(form).on('submit', function (e) {
   e.preventDefault();
 
@@ -15,8 +16,11 @@ $(form).on('submit', function (e) {
       };
     });
 });
+//======= end authorization =======//
 
 $(document).ready(function () {
+
+  //======= start menu-btn (mobile-first) =======//
   $('.ba-menu-btn').on('click', function () {
     $('.ba-menu').toggle();
   })
@@ -28,11 +32,20 @@ $(document).ready(function () {
       $('.ba-menu').hide();
     }
   })
+  //======= end menu-btn (mobile-first) =======//
+
+  $('.ba-menu-btn__main').on('click', function () {
+    $('.ba-header').toggleClass('ba-header--hidden');
+    $('.ba-main').toggleClass('ba-main--full');
+  })
+
+  //======= start customize select arrow =======//
 
   $('.ba-select').on('click', function () {
     $(this).prev().toggleClass('icon-angle-down')
     $(this).prev().toggleClass('icon-angle-up')
   })
+  //======= end customize select arrow =======//
 
 });
 
@@ -106,6 +119,7 @@ legend.append('text')
   .text(function (d) { return d; });
 
 svg.append('text')
+  .attr('class', 'salesCount')
   .attr('x', 0)
   .attr('y', 0)
   .text('1,560 sales')
@@ -156,6 +170,7 @@ reportSvg.append("g")
 
 let gridlinesV = d3.axisBottom()
   .tickFormat("")
+  .ticks(12)
   .tickSizeInner(reportHeight)
   .tickSizeOuter(0)
   .scale(reportX);

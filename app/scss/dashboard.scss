@@ -22,7 +22,7 @@
     border: 1px solid $greyBorders;
     color: $mainColor;
     
-    height: 35vh;
+    height: 300px;
 
     &-header {
         display: flex;
@@ -33,6 +33,8 @@
         &_bordered {
             border-bottom: 1px solid $greyBorders;
             padding: 0.875rem;
+            width: calc(100% - 1px);
+            height: 60px;
         }
     }
 
@@ -54,6 +56,19 @@
         border-bottom: 1px solid $greyBorders;
         padding: 1rem;
         color: $mainColor;
+        min-height: 70px;
+        width: calc(100% - 1px);
+    }
+
+    &-tasks, &-messages, &-activities {
+
+        height: 340px;
+
+        .ba-section-content {
+            max-height: 280px;
+            overflow: auto;
+        }
+        
     }
 }
 
@@ -155,6 +170,49 @@
     }
 }
 
+.ba-activity {
+    border: none;
+    justify-content: flex-start;
+
+    &__avatar {
+        min-width: 30px;
+        min-height: 30px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+
+    &__info {
+        margin-left: 1rem;
+        margin-right: auto;
+    }
+
+    &__username {
+        font-size: 0.55rem;
+        letter-spacing: 0.01em;
+        line-height: 1.5;
+        font-weight: 700;
+    }
+
+    &__title {
+        margin: 0 0.5em;
+        letter-spacing: normal;
+        font-weight: 400;
+        color: $gray;
+    }
+
+    &__timeline {
+        font-size: 0.55rem;
+        margin: 0.5em 0;
+        color: $gray;
+
+        span {
+            margin-right: 0.5em;
+        }
+    }
+
+}
+
 .ba-btn {
     &__options {
         &.icon-options {
@@ -218,9 +276,96 @@
 }
 
 .ba-chart {
-    height: calc(30vh - 50px);
+    height: 230px;
+    width: 100%;
+    padding: 1rem;
     &__svg {
         max-width: 100%;
         height: 100%;
+        
+        .legend {
+            text {
+                font-size: 28px;
+                stroke: none;
+                fill: $gray;
+            }
+        }
+
+        .salesCount {
+            font-size: 28px;
+            stroke: none;
+            fill: $gray;
+        }
+
+        .tick {
+            text {
+                font-size: 28px;
+                stroke: none;
+                fill: $gray;
+                }
+            }
+        }
+
+        .gridV {
+            .domain {
+                stroke: none;
+            }
+
+            .tick{
+                &:nth-last-child(1) {
+                    opacity: 0;
+                }
+
+                &:nth-first-child(1) {
+                    stroke-width: 2px;
+                    stroke: $greyBorders;
+                }
+
+                line {
+                    stroke: $gray;
+                }
+            }
+        }
+
+        .gridH {
+            .domain {
+                stroke-width: 2px;
+                stroke: $greyBorders;
+            }
+
+            .tick{
+                line {
+                    stroke: $gray;
+                }
+            }
+        }
+    }
+}
+
+.scrollbar {
+
+    &::-webkit-scrollbar-track
+    {
+        box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        background-color: #F5F5F5;
+        border-radius: 10px;
+        // z-index: 100;
+    }
+
+    &::-webkit-scrollbar
+    {
+        width: 8px;
+        background-color: #F5F5F5;
+        // z-index: 150;
+    }
+
+    &::-webkit-scrollbar-thumb
+    {
+        border-radius: 10px;
+        background-image: -webkit-gradient(linear, left bottom, left top,
+                        color-stop(0.44, rgb(122,153,217)),
+                        color-stop(0.72, rgb(73,125,189)),
+                        color-stop(0.86, rgb(28,58,148)));
+        // z-index: 200;
     }
 }
