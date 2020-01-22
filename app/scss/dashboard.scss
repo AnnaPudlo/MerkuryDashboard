@@ -20,6 +20,7 @@
     margin-bottom: 26px;
     background-color: #fff;
     border: 1px solid $greyBorders;
+    color: $mainColor;
     
     height: 35vh;
 
@@ -52,6 +53,7 @@
         justify-content: space-between;
         border-bottom: 1px solid $greyBorders;
         padding: 1rem;
+        color: $mainColor;
     }
 }
 
@@ -95,8 +97,7 @@
         font-size: 0.75rem;
         font-weight: 500;
         margin: 0;
-        color: $mainColor;
-        letter-spacing: 0.01;
+        letter-spacing: 0.01em;
     }
 
     &__timeline {
@@ -107,6 +108,50 @@
         &_delay {
             color: $pink;
         }
+
+        span {
+            margin-right: 0.5em;
+        }
+    }
+}
+
+.ba-message {
+    justify-content: flex-start;
+    padding-bottom: 0.5rem;
+
+    &_new {
+        background-color: #f4f5f8;
+    }
+    
+    &__info {
+        margin-left: 1rem;
+        margin-right: auto;
+    }
+
+    &__avatar {
+        min-width: 30px;
+        min-height: 30px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+
+    &__username {
+        font-size: 0.55rem;
+        letter-spacing: 0.01em;
+        line-height: 1.5;
+        font-weight: 700;
+    }
+
+    &__timeline {
+        margin-left: 1em;
+        color: $gray;
+        font-weight: 400;
+    }
+
+    &__preview {
+        font-size: 0.55rem;
+        line-height: 1.5;
     }
 }
 
@@ -116,6 +161,24 @@
             color: $gray;
             margin: 0;
         }
+
+        font-size: 1rem;
+    }
+
+    &__reply {
+        &.icon-reply {
+            color: $gray;
+        }
+        font-size: 0.675rem;
+        margin: 0;
+    }
+
+    &__settings {
+        &.icon-gear {
+            color: $gray;
+        }
+        font-size: 0.675rem;
+        margin: 0 0 0 0.5em;
     }
 }
 
