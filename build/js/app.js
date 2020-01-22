@@ -93,7 +93,7 @@ var margin = {
   top: 0,
   right: 0,
   bottom: 0,
-  left: 20
+  left: 60
 };
 var reportWidth = 768 - margin.left - margin.right;
 var reportHeight = 400 - margin.top - margin.bottom;
