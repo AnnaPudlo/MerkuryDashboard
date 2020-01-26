@@ -62,19 +62,26 @@ $(document).ready(function () {
 
 //======= start sales chart =======//
 let dataset = [
-  { label: 'Websites', count: 12 },
-  { label: 'Logo', count: 13 },
-  { label: 'Social Media', count: 30 },
-  { label: 'Adwords', count: 21 },
-  { label: 'E-Commerce', count: 19 }
+  { label: 'Websites', count: 188 },
+  { label: 'Logo', count: 202},
+  { label: 'Social Media', count: 468 },
+  { label: 'Adwords', count: 359 },
+  { label: 'E-Commerce', count: 343 }
 ];
 
 let width = 720;
 let height = 360;
-let radius = Math.min(width, height) / 2;
+let radius = Math.min(width, height) * 0.45;
 let donutWidth = 70;
 let legendRectSize = 36;
 let legendSpacing = 8;
+
+let dataTotal = 0;
+
+for (let i = 0; i < dataset.length; i++) {
+  dataTotal+=dataset[i].count;
+}
+console.log(dataTotal);
 
 let color = d3.scaleOrdinal().domain(dataset.length)
   .range(["#4b74e0", "#4164c2", "#3755a4", "#25396e", "#5584ff"])
@@ -83,7 +90,7 @@ let svg = d3.select('#ba-sales-chart svg')
   .attr('width', width)
   .attr('height', height)
   .append('g')
-  .attr('transform', 'translate(' + (width / 4) + ',' + (height / 2) + ')');
+  .attr('transform', 'translate(' + (width / 3) + ',' + (height / 2) + ')');
 
 let arc = d3.arc()
   .innerRadius(radius - donutWidth)
@@ -93,6 +100,10 @@ let pie = d3.pie()
   .value(function (d) { return d.count; })
   .sort(null);
 
+let div = d3.select('#ba-sales-chart').append('div')
+  .attr('class', 'tooltip-donut')
+  .style('opacity', 0);
+
 let path = svg.selectAll('path')
   .data(pie(dataset))
   .enter()
@@ -100,7 +111,27 @@ let path = svg.selectAll('path')
   .attr('d', arc)
   .attr('fill', function (d, i) {
     return color(d.data.label);
-  });
+  })
+  .on('mouseover', function (d, i) {
+    d3.select(this).transition()
+      .duration('100')
+      .attr('transform', 'scale(1.1)')
+      .attr('fill', '#f83c7b');
+    div.transition()
+      .duration(100)
+      .style("opacity", 1);
+    let num = (Math.round((d.value / dataTotal) * 100)).toString() + '%';
+    div.html(num)
+      .style("left", (d3.event.pageX - 10) + "px")
+      .style("top", (d3.event.pageY - 10) + "px");})
+  .on('mouseout', function (d, i) {
+    d3.select(this).transition()
+      .duration('100')
+      .attr('transform', 'scale(1)')
+      .attr('fill', color(d.data.label))
+    div.transition()
+      .duration('100')
+      .style("opacity", 0);});
 
 let legend = svg.selectAll('.legend')
   .data(color.domain())
@@ -139,7 +170,7 @@ svg.append("foreignObject")
     .attr('x', -40)
     .attr('y', -40)
   .append("xhtml:body")
-    .html("<h1 class='salesCount' style='font-size: 36px; color: #8492af'>1500 sales</h1>")
+    .html("<h1 class='salesCount' style='font-size: 36px; color: #8492af'>"+dataTotal+" sales</h1>")
 //======= end sales chart =======//
 
 //======= start report chart =======//

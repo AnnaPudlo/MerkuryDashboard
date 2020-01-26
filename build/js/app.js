@@ -52,34 +52,50 @@ $(document).ready(function () {
 
 var dataset = [{
   label: 'Websites',
-  count: 12
+  count: 188
 }, {
   label: 'Logo',
-  count: 13
+  count: 202
 }, {
   label: 'Social Media',
-  count: 30
+  count: 468
 }, {
   label: 'Adwords',
-  count: 21
+  count: 359
 }, {
   label: 'E-Commerce',
-  count: 19
+  count: 343
 }];
 var width = 720;
 var height = 360;
-var radius = Math.min(width, height) / 2;
+var radius = Math.min(width, height) * 0.45;
 var donutWidth = 70;
 var legendRectSize = 36;
 var legendSpacing = 8;
+var dataTotal = 0;
+
+for (var i = 0; i < dataset.length; i++) {
+  dataTotal += dataset[i].count;
+}
+
+console.log(dataTotal);
 var color = d3.scaleOrdinal().domain(dataset.length).range(["#4b74e0", "#4164c2", "#3755a4", "#25396e", "#5584ff"]);
-var svg = d3.select('#ba-sales-chart svg').attr('width', width).attr('height', height).append('g').attr('transform', 'translate(' + width / 4 + ',' + height / 2 + ')');
+var svg = d3.select('#ba-sales-chart svg').attr('width', width).attr('height', height).append('g').attr('transform', 'translate(' + width / 3 + ',' + height / 2 + ')');
 var arc = d3.arc().innerRadius(radius - donutWidth).outerRadius(radius);
 var pie = d3.pie().value(function (d) {
   return d.count;
 }).sort(null);
+var div = d3.select('#ba-sales-chart').append('div').attr('class', 'tooltip-donut').style('opacity', 0);
 var path = svg.selectAll('path').data(pie(dataset)).enter().append('path').attr('d', arc).attr('fill', function (d, i) {
   return color(d.data.label);
+}).on('mouseover', function (d, i) {
+  d3.select(this).transition().duration('100').attr('transform', 'scale(1.1)').attr('fill', '#f83c7b');
+  div.transition().duration(100).style("opacity", 1);
+  var num = Math.round(d.value / dataTotal * 100).toString() + '%';
+  div.html(num).style("left", d3.event.pageX - 10 + "px").style("top", d3.event.pageY - 10 + "px");
+}).on('mouseout', function (d, i) {
+  d3.select(this).transition().duration('100').attr('transform', 'scale(1)').attr('fill', color(d.data.label));
+  div.transition().duration('100').style("opacity", 0);
 });
 var legend = svg.selectAll('.legend').data(color.domain()).enter().append('g').attr('class', 'legend').attr('transform', function (d, i) {
   var height = legendRectSize + legendSpacing;
@@ -97,7 +113,7 @@ legend.append('text').attr('x', legendRectSize + legendSpacing).attr('y', legend
 //   .attr('y', 0)
 //   .text('1,560 sales')
 
-svg.append("foreignObject").attr("width", 100).attr("height", 80).attr('x', -40).attr('y', -40).append("xhtml:body").html("<h1 class='salesCount' style='font-size: 36px; color: #8492af'>1500 sales</h1>"); //======= end sales chart =======//
+svg.append("foreignObject").attr("width", 100).attr("height", 80).attr('x', -40).attr('y', -40).append("xhtml:body").html("<h1 class='salesCount' style='font-size: 36px; color: #8492af'>" + dataTotal + " sales</h1>"); //======= end sales chart =======//
 //======= start report chart =======//
 // let margin = { top: 10, right: 20, bottom: 20, left: 40 };
 
@@ -155,8 +171,8 @@ function parseDate(d) {
   };
 }
 
-for (var i = 0; i < reportData.length; i++) {
-  reportData[i] = parseDate(reportData[i]);
+for (var _i = 0; _i < reportData.length; _i++) {
+  reportData[_i] = parseDate(reportData[_i]);
 }
 
 console.log(reportData);

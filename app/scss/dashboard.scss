@@ -339,6 +339,18 @@
             }
         }
     }
+
+    .tooltip-donut {
+        position: absolute;
+        text-align: center;
+        padding: .25rem;
+        background: rgba(255,255,255,0.75);
+        color: $primaryColor;
+        border: 1px solid $primaryColor;
+        border-radius: 8px;
+        pointer-events: none;
+        font-size: 1rem;
+   }
 }
 
 .scrollbar {
