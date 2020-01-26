@@ -1,0 +1,48 @@
+.workflow-wrap {
+    padding-top: 1rem;
+
+    .ba-section {
+        background: none;
+        border: none;
+        height: 100%;
+        margin-bottom: 0;
+
+        &-title {
+            font-size: 1.375rem;
+            color: $mainColor;
+            text-transform: capitalize;
+
+            &:after {
+                content: '(' attr(dataCount) ')';
+                color: $primaryColor;
+                margin: 0 0.25em;
+            }
+        }
+
+        &-header {
+            margin-bottom: 1rem;
+            span {
+                font-size: 1.75rem;
+                color: $primaryColor;
+            }
+        }
+
+        &-item {
+            background: #fff;
+            border: 1px solid $greyBorders;
+        }
+    }
+}
+
+.ba-tasks {
+    padding: 0 1.5rem 0 1rem;
+    
+    @media screen and (min-width: 769px) {
+        overflow: auto;
+        max-height: 70vh;
+    }
+    
+    .ba-task + .ba-task {
+        margin-top: 1rem;
+    }
+}

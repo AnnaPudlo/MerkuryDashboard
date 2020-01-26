@@ -287,5 +287,4 @@ reportSvg.append('g')
       .duration('100')
       .style("opacity", 0);});
 
-
 //======= end report chart =======//
