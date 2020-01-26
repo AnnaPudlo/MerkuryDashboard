@@ -10,6 +10,12 @@
     }
 }
 
+.all {
+    width: 100%;
+    max-height: calc(100vh - 70px);
+    overflow: auto;
+}
+
 .ba-review-wrap {
     display: flex;
     flex-wrap: wrap;
@@ -289,20 +295,13 @@
                 stroke: none;
                 fill: $gray;
             }
-        }
-
-        .salesCount {
-            font-size: 28px;
-            stroke: none;
-            fill: $gray;
-        }
+        }      
 
         .tick {
             text {
                 font-size: 28px;
                 stroke: none;
                 fill: $gray;
-                }
             }
         }
 

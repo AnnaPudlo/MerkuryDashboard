@@ -35,6 +35,18 @@
         border: none;
         background: none;
         color: #fff;
+
+        &__before {
+            color: $blue;
+            &.icon-left-dir:before{
+                width: 8px;
+                margin-right: 0;
+            }
+        }
+
+        &__main {
+            margin-left: 0;
+        }
     }
 
     &__item {

@@ -5,9 +5,9 @@
 	],
 
 	"sidemenu": [
-		["Home", "#", "icon-home"],
-		["Workflow", "#", "icon-workflow"],
-		["Statistics", "#", "icon-stats"],
+		["Home", "dashboard.html", "icon-home"],
+		["Workflow", "workflow.html", "icon-workflow"],
+		["Statistics", "statistics.html", "icon-stats"],
 		["Calendar", "#", "icon-calendar"],
 		["Users", "#", "icon-user2"],
 		["Settings", "#", "icon-settings"]

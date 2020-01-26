@@ -34,9 +34,18 @@ $(document).ready(function () {
   })
   //======= end menu-btn (mobile-first) =======//
 
+
+  //======= start menu-btn (desktop full screen) =======//
   $('.ba-menu-btn__main').on('click', function () {
     $('.ba-header').toggleClass('ba-header--hidden');
     $('.ba-main').toggleClass('ba-main--full');
+    $('.ba-menu-btn__main').prev('span').toggleClass('icon-left-dir');
+  })
+  //======= end menu-btn (desktop full screen) =======//
+
+  $('#showSearch').on('click', function (){
+    $('.ba-search-form').toggle();
+    $('#showSearch').toggleClass('icon-search icon-cancel')
   })
 
   //======= start customize select arrow =======//
@@ -118,11 +127,19 @@ legend.append('text')
   .attr('y', legendRectSize - legendSpacing)
   .text(function (d) { return d; });
 
-svg.append('text')
-  .attr('class', 'salesCount')
-  .attr('x', 0)
-  .attr('y', 0)
-  .text('1,560 sales')
+// svg.append('text')
+//   .attr('class', 'salesCount')
+//   .attr('x', 0)
+//   .attr('y', 0)
+//   .text('1,560 sales')
+
+svg.append("foreignObject")
+    .attr("width", 100)
+    .attr("height", 80)
+    .attr('x', -40)
+    .attr('y', -40)
+  .append("xhtml:body")
+    .html("<h1 class='salesCount' style='font-size: 36px; color: #8492af'>1500 sales</h1>")
 //======= end sales chart =======//
 
 //======= start report chart =======//

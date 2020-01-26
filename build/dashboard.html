@@ -27,21 +27,23 @@
                 <button class="ba-btn showUserMenu icon-down-dir" aria-label="show user menu"></button>
               </div>
             </li>
-            <li class="ba-menu__item"><a class="ba-menu__link" href="##"><span class="icon-home"></span>Home</a></li>
-            <li class="ba-menu__item"><a class="ba-menu__link" href="##"><span class="icon-workflow"></span>Workflow</a></li>
-            <li class="ba-menu__item"><a class="ba-menu__link" href="##"><span class="icon-stats"></span>Statistics</a></li>
-            <li class="ba-menu__item"><a class="ba-menu__link" href="##"><span class="icon-calendar"></span>Calendar</a></li>
-            <li class="ba-menu__item"><a class="ba-menu__link" href="##"><span class="icon-user2"></span>Users</a></li>
-            <li class="ba-menu__item"><a class="ba-menu__link" href="##"><span class="icon-settings"></span>Settings</a></li>
+            <li class="ba-menu__item"><a class="ba-menu__link" href="dashboard.html"><span class="icon-home"></span>Home</a></li>
+            <li class="ba-menu__item"><a class="ba-menu__link" href="workflow.html"><span class="icon-workflow"></span>Workflow</a></li>
+            <li class="ba-menu__item"><a class="ba-menu__link" href="statistics.html"><span class="icon-stats"></span>Statistics</a></li>
+            <li class="ba-menu__item"><a class="ba-menu__link" href="#"><span class="icon-calendar"></span>Calendar</a></li>
+            <li class="ba-menu__item"><a class="ba-menu__link" href="#"><span class="icon-user2"></span>Users</a></li>
+            <li class="ba-menu__item"><a class="ba-menu__link" href="#"><span class="icon-settings"></span>Settings</a></li>
           </ul>
         </nav>
       </header>
       <main class="col-12 col-md-9 col-lg-10 ba-main">
         <div class="ba-toolbar row">
           <div class="left">
-            <button class="ba-btn ba-menu-btn__main icon-menu hidden-before-md" aria-label="show menu"></button>
+            <div class="ba-menu-btn-wrap hidden-before-md"><span class="ba-menu-btn__before icon-left-dir"></span>
+              <button class="ba-btn ba-menu-btn__main icon-menu" aria-label="show menu"></button>
+            </div>
             <div class="ba-search">
-              <button class="ba-btn icon-search" id="showSearch"></button>
+              <button class="ba-search__show ba-btn icon-search" id="showSearch"></button>
               <form class="ba-search-form" action="#">
                 <input class="ba-search__input" type="search" name="ba-search__input" placeholder="Search">
                 <button class="ba-btn ba-search__btn icon-search"></button>

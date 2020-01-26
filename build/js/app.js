@@ -30,10 +30,17 @@ $(document).ready(function () {
       $('.ba-menu').hide();
     }
   }); //======= end menu-btn (mobile-first) =======//
+  //======= start menu-btn (desktop full screen) =======//
 
   $('.ba-menu-btn__main').on('click', function () {
     $('.ba-header').toggleClass('ba-header--hidden');
     $('.ba-main').toggleClass('ba-main--full');
+    $('.ba-menu-btn__main').prev('span').toggleClass('icon-left-dir');
+  }); //======= end menu-btn (desktop full screen) =======//
+
+  $('#showSearch').on('click', function () {
+    $('.ba-search-form').toggle();
+    $('#showSearch').toggleClass('icon-search icon-cancel');
   }); //======= start customize select arrow =======//
 
   $('.ba-select').on('click', function () {
@@ -84,8 +91,13 @@ var legend = svg.selectAll('.legend').data(color.domain()).enter().append('g').a
 legend.append('circle').attr('cx', legendRectSize / 2).attr('cy', legendRectSize / 2).attr('r', legendRectSize / 2).style('fill', color).style('stroke', color);
 legend.append('text').attr('x', legendRectSize + legendSpacing).attr('y', legendRectSize - legendSpacing).text(function (d) {
   return d;
-});
-svg.append('text').attr('class', 'salesCount').attr('x', 0).attr('y', 0).text('1,560 sales'); //======= end sales chart =======//
+}); // svg.append('text')
+//   .attr('class', 'salesCount')
+//   .attr('x', 0)
+//   .attr('y', 0)
+//   .text('1,560 sales')
+
+svg.append("foreignObject").attr("width", 100).attr("height", 80).attr('x', -40).attr('y', -40).append("xhtml:body").html("<h1 class='salesCount' style='font-size: 36px; color: #8492af'>1500 sales</h1>"); //======= end sales chart =======//
 //======= start report chart =======//
 // let margin = { top: 10, right: 20, bottom: 20, left: 40 };
 

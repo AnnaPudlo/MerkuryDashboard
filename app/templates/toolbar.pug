@@ -1,8 +1,10 @@
 .ba-toolbar.row
   .left
-    button.ba-btn.ba-menu-btn__main.icon-menu.hidden-before-md(aria-label='show menu')
+    .ba-menu-btn-wrap.hidden-before-md
+      span.ba-menu-btn__before.icon-left-dir
+      button.ba-btn.ba-menu-btn__main.icon-menu(aria-label='show menu')
     .ba-search
-      button#showSearch.ba-btn.icon-search
+      button#showSearch.ba-search__show.ba-btn.icon-search
       form.ba-search-form(action="#")
         input.ba-search__input(type="search", name="ba-search__input", placeholder="Search")
         button.ba-btn.ba-search__btn.icon-search
