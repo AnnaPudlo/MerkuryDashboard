@@ -158,12 +158,6 @@ legend.append('text')
   .attr('y', legendRectSize - legendSpacing)
   .text(function (d) { return d; });
 
-// svg.append('text')
-//   .attr('class', 'salesCount')
-//   .attr('x', 0)
-//   .attr('y', 0)
-//   .text('1,560 sales')
-
 svg.append("foreignObject")
     .attr("width", 100)
     .attr("height", 80)
@@ -188,14 +182,14 @@ let reportSvg = d3.select("#ba-report-chart svg")
 
 let reportData = [
   { date: "2019-01-01", value: 300 },
-  { date: "2019-02-01", value: 370 },
-  { date: "2019-03-01", value: 250 },
-  { date: "2019-04-01", value: 500 },
+  { date: "2019-02-01", value: 350 },
+  { date: "2019-03-01", value: 290 },
+  { date: "2019-04-01", value: 450 },
   { date: "2019-05-01", value: 350 },
   { date: "2019-06-01", value: 740 },
-  { date: "2019-07-01", value: 730 },
-  { date: "2019-08-01", value: 400 },
-  { date: "2019-09-01", value: 550 },
+  { date: "2019-07-01", value: 640 },
+  { date: "2019-08-01", value: 410 },
+  { date: "2019-09-01", value: 490 },
   { date: "2019-10-01", value: 300 },
   { date: "2019-11-01", value: 380 },
   { date: "2019-12-01", value: 290 },
@@ -250,8 +244,48 @@ reportSvg.append("path")
   .attr("stroke", "blue")
   .attr("stroke-width", 1.5)
   .attr("d", d3.line()
-    .curve(d3.curveBasis)
+    .curve(d3.curveCatmullRom.alpha(0.15))
     .x(function (d) { return reportX(d.date) })
     .y(function (d) { return reportY(d.value) }))
+
+let dataTool = d3.select('#ba-report-chart')
+  .append('div')
+  .style('opacity', 0)
+  .attr('class', 'tooltip-scatter');
+
+reportSvg.append('g')
+  .selectAll('dot')
+  .data(reportData)
+  .enter()
+  .append('circle')
+    .attr('class', 'scatterDot')
+    .attr('cx', function(d) { return reportX(d.date) })
+    .attr('cy', function (d) { return reportY(d.value) })
+    .attr('r', 5)
+    .attr('stroke', 'blue')
+    .attr('stroke-width', 2)
+    .attr('fill', 'white')
+  .on('mouseover', function (d, i) {
+    d3.select(this).transition()
+      .duration('100')
+      .attr('r', 10)
+      .attr('stroke-width', 4)
+      .attr('fill', '#f83c7b')
+    dataTool.transition()
+      .duration(100)
+      .style("opacity", 1);
+    dataTool.html("Exact value: " + d.value)
+      .style("left", (d3.event.pageX - 40) + "px")
+      .style("top", (d3.event.pageY - 40) + "px");})
+  .on('mouseout', function (d, i) {
+    d3.select(this).transition()
+      .duration('100')
+      .attr('r', 5)
+      .attr('stroke-width', 2)
+      .attr('fill', 'white')
+    dataTool.transition()
+      .duration('100')
+      .style("opacity", 0);});
+
 
 //======= end report chart =======//

@@ -340,7 +340,7 @@
         }
     }
 
-    .tooltip-donut {
+    .tooltip-donut, .tooltip-scatter {
         position: absolute;
         text-align: center;
         padding: .25rem;
@@ -350,7 +350,9 @@
         border-radius: 8px;
         pointer-events: none;
         font-size: 1rem;
-   }
+    }
+
+    
 }
 
 .scrollbar {
