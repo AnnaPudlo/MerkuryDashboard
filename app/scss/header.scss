@@ -94,6 +94,10 @@
         display: flex;
         align-items: center;
     }
+
+    .right {
+        justify-content: space-between;
+    }
 }
 
 .ba-search {
@@ -102,8 +106,11 @@
 
     &__input {
         height: 30px;
+        border:none;
+        border: 1px solid $blue;
         border-radius: 15px;
-        width: 75%
+        width: 75%;
+        padding: 0 1rem;
     }
 
     &-form {
@@ -117,9 +124,13 @@
         padding: 20px 0;
 
         @media screen and (min-width: 769px) {
-            // position: static;
             background-color: transparent;
+            // top:52%;
+            // transform: translateY(-50%);
+            // left: 110px;
+            // width: 200px;
             padding: 0;
+            position: static;
         }
 
     }
@@ -142,6 +153,24 @@
         border-radius: 15px;
         color: #fff;
         font-size: 0.675rem;
+    }
+
+    &-message, &-notify {
+        position: relative;
+        &:after {
+            content: attr(dataCount);
+            display: block;
+            position: absolute;
+            left: 60%;
+            top: -10px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background-color: $blue;
+            color: #fff;
+            font-size: 0.75rem;
+            padding-top: 1px;
+        }
     }
 }
 
