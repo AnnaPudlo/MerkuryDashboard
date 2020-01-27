@@ -351,6 +351,76 @@ totalFg = totalG.append('path')
 
 //======= end total chart =======//
 
+margin = { top: 0, right: 0, bottom: 0, left: 60 };
+// let totalSalesWidth = 1000 - margin.left - margin.right;
+// let totalSalesHeight = 400 - margin.top - margin.bottom;
+
+let totalSalesSvg = d3.select("#ba-sales-line1 svg")
+  .attr("width", reportWidth + margin.left + margin.right)
+  .attr("height", reportHeight + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform",
+    "translate(" + margin.left + "," + margin.top + ")");
+
+let totalSales1Svg = d3.select("#ba-sales-line2 svg")
+  .attr("width", reportWidth + margin.left + margin.right)
+  .attr("height", reportHeight + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform",
+    "translate(" + margin.left + "," + margin.top + ")");
+
+let totalSalesData = [
+  { date: "2019-01-01", value: 300 },
+  { date: "2019-02-01", value: 350 },
+  { date: "2019-03-01", value: 290 },
+  { date: "2019-04-01", value: 450 },
+  { date: "2019-05-01", value: 350 },
+  { date: "2019-06-01", value: 740 },
+  { date: "2019-07-01", value: 640 },
+  { date: "2019-08-01", value: 410 },
+  { date: "2019-09-01", value: 490 },
+  { date: "2019-10-01", value: 300 },
+  { date: "2019-11-01", value: 380 },
+  { date: "2019-12-01", value: 290 },
+];
+
+for (let i = 0; i < totalSalesData.length; i++)
+  totalSalesData[i] = parseDate(totalSalesData[i]);
+console.log(totalSalesData);
+
+let tsX = d3.scaleTime()
+  .domain(d3.extent(totalSalesData, function (d) { return d.date; }))
+  .range([0, reportWidth]);
+totalSalesSvg.append("g")
+  .attr("transform", "translate(0," + reportHeight + ")");
+totalSales1Svg.append("g")
+  .attr("transform", "translate(0," + reportHeight + ")");
+
+let tsY = d3.scaleLinear()
+  .domain([100, 790])
+  .range([reportHeight, 0]);
+
+totalSalesSvg.append("path")
+  .datum(reportData)
+  .attr("fill", "none")
+  .attr("stroke", "blue")
+  .attr("stroke-width", 4)
+  .attr("d", d3.line()
+    .curve(d3.curveCatmullRom.alpha(0.15))
+    .x(function (d) { return tsX(d.date) })
+    .y(function (d) { return tsY(d.value) }));
+
+totalSales1Svg.append("path")
+  .datum(reportData)
+  .attr("fill", "none")
+  .attr("stroke", "fuchsia")
+  .attr("stroke-width", 4)
+  .attr("d", d3.line()
+    .curve(d3.curveCatmullRom.alpha(0.15))
+    .x(function (d) { return tsX(d.date) })
+    .y(function (d) { return tsY(d.value) }));
+
+
 //======= workflow drag & drop =======//
 var arr = [];
 function allowDrow(ev) {
@@ -364,12 +434,24 @@ function drag(ev) {
 function drop(ev, block) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-    var content = ev.dataTransfer.getData("parent");
-    if(block.id == "div2"){
-        if(arr.indexOf(data) == -1){
-            arr.push(content);
-        }
+    var fromRoot = ev.dataTransfer.getData("parent");
+    
+    if (block.id == "div1" && fromRoot == "div2") {
+        dataTransfer.effectAllowed = 'none';
     }
+    if (block.id == "div3" && fromRoot == "div1") {
+        dataTransfer.effectAllowed = 'none';
+    }
+    if (block.id == "div2" && fromRoot == "div3") {
+        dataTransfer.effectAllowed = 'none';
+    }
+    
+
+    // if(block.id == "div2"){
+    //     if(arr.indexOf(data) == -1){
+    //         arr.push(fromRoot);
+    //     }
+    // }
     // if(block.id == "div1"){
     //     if(arr.indexOf(data) != -1){
     //        arr.splice(arr.indexOf(data), 1);
