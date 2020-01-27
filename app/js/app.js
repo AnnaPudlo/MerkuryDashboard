@@ -423,6 +423,18 @@ totalSales1Svg.append("path")
 
 //======= workflow drag & drop =======//
 
+function updateCounts() {
+    let arrCounts = $('.elemCount');
+        for (let i=0; i < arrCounts.length; i++)
+            $(arrCounts[i]).text(function() {
+              let count = $(arrCounts[i]).closest('.ba-section').find('.ba-tasks').children().length;
+              return '('+count+')';
+            });
+}
+
+updateCounts();
+
+
 function allowDrow(ev) {
     ev.preventDefault();
 }
@@ -452,6 +464,7 @@ function drop(ev, block) {
         let changeInfo = $(dropEl).find('.ba-task__timeline');
         $(changeInfo).html("<span class='icon-checked'></span> Completed!");
         $(changeInfo).toggleClass('ba-task__timeline_done ba-task__timeline_delay');
+        updateCounts();
         return;
     }
 
@@ -461,9 +474,11 @@ function drop(ev, block) {
         let changeInfo = $(dropEl).find('.ba-task__timeline');
         $(changeInfo).html("<span class='icon-time'></span> 7 days left");
         $(changeInfo).toggleClass('ba-task__timeline_done');
+        updateCounts();
         return;
     }
 
     block.appendChild(document.getElementById(data));
+    updateCounts();
 }
 

@@ -10,7 +10,8 @@ block content
         .col-12.col-md-4
           section.ba-section.ba-section-todo
             .ba-section-header
-              h2.ba-section-title(dataCount='6') To do
+              h2.ba-section-title To do
+                span.elemCount ()
               span.icon-angle-right
             .ba-tasks(id="div1" ondrop="drop(event, this)" ondragover="allowDrow(event)").scrollbar
               .ba-section-item.ba-task(draggable="true" ondragstart="drag(event)" id="drag1")
@@ -64,7 +65,8 @@ block content
         .col-12.col-md-4
           section.ba-section.ba-section-inprogress
             .ba-section-header
-              h2.ba-section-title(dataCount='3') In progress
+              h2.ba-section-title In progress
+                span.elemCount ()
               span.icon-angle-right
             .ba-tasks(id="div2" ondrop="drop(event, this)" ondragover="allowDrow(event)").scrollbar
               .ba-section-item.ba-task(draggable="true" ondragstart="drag(event)" id="drag7")
@@ -94,7 +96,8 @@ block content
         .col-12.col-md-4
           section.ba-section.ba-section-done
             .ba-section-header
-              h2.ba-section-title(dataCount='4') Completed
+              h2.ba-section-title Completed
+                span.elemCount ()
             .ba-tasks(id="div3" ondrop="drop(event, this)" ondragover="allowDrow(event)").scrollbar
               .ba-section-item.ba-task(draggable="true" ondragstart="drag(event)" id="drag10")
                 span.ba-badge.ba-task-badge N

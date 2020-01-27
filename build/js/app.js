@@ -300,6 +300,23 @@ totalSales1Svg.append("path").datum(reportData).attr("fill", "none").attr("strok
   return tsY(d.value);
 })); //======= workflow drag & drop =======//
 
+function updateCounts() {
+  var arrCounts = $('.elemCount');
+
+  var _loop = function _loop(_i3) {
+    $(arrCounts[_i3]).text(function () {
+      var count = $(arrCounts[_i3]).closest('.ba-section').find('.ba-tasks').children().length;
+      return '(' + count + ')';
+    });
+  };
+
+  for (var _i3 = 0; _i3 < arrCounts.length; _i3++) {
+    _loop(_i3);
+  }
+}
+
+updateCounts();
+
 function allowDrow(ev) {
   ev.preventDefault();
 }
@@ -333,6 +350,7 @@ function drop(ev, block) {
     var changeInfo = $(dropEl).find('.ba-task__timeline');
     $(changeInfo).html("<span class='icon-checked'></span> Completed!");
     $(changeInfo).toggleClass('ba-task__timeline_done ba-task__timeline_delay');
+    updateCounts();
     return;
   }
 
@@ -345,8 +363,10 @@ function drop(ev, block) {
 
     $(_changeInfo).html("<span class='icon-time'></span> 7 days left");
     $(_changeInfo).toggleClass('ba-task__timeline_done');
+    updateCounts();
     return;
   }
 
   block.appendChild(document.getElementById(data));
+  updateCounts();
 }
