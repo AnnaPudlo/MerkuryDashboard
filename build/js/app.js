@@ -199,3 +199,33 @@ reportSvg.append('g').selectAll('dot').data(reportData).enter().append('circle')
   d3.select(this).transition().duration('100').attr('r', 5).attr('stroke-width', 2).attr('fill', 'white');
   dataTool.transition().duration('100').style("opacity", 0);
 }); //======= end report chart =======//
+//======= start total chart =======//
+
+var totalWidth = 500;
+var totalHeight = 500;
+var tau = 2 * Math.PI;
+var totalArc = d3.arc().innerRadius(180).outerRadius(240).startAngle(0).cornerRadius(30);
+var total1 = d3.select("#ba-total-chart1 svg").attr('width', totalWidth).attr('height', totalHeight);
+var totalG = total1.append('g').attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
+var totalBg = totalG.append('path').datum({
+  endAngle: tau
+}).style("fill", "#ddd").attr('d', totalArc);
+var totalFg = totalG.append('path').datum({
+  endAngle: 0.45 * tau
+}).style('fill', 'blue').attr('d', totalArc);
+var total2 = d3.select("#ba-total-chart2 svg").attr('width', totalWidth).attr('height', totalHeight);
+totalG = total2.append('g').attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
+totalBg = totalG.append('path').datum({
+  endAngle: tau
+}).style("fill", "#ddd").attr('d', totalArc);
+totalFg = totalG.append('path').datum({
+  endAngle: 0.20 * tau
+}).style('fill', 'blue').attr('d', totalArc);
+var total3 = d3.select("#ba-total-chart3 svg").attr('width', totalWidth).attr('height', totalHeight);
+totalG = total3.append('g').attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
+totalBg = totalG.append('path').datum({
+  endAngle: tau
+}).style("fill", "#ddd").attr('d', totalArc);
+totalFg = totalG.append('path').datum({
+  endAngle: 0.35 * tau
+}).style('fill', 'blue').attr('d', totalArc); //======= end total chart =======//
