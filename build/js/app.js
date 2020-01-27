@@ -300,8 +300,6 @@ totalSales1Svg.append("path").datum(reportData).attr("fill", "none").attr("strok
   return tsY(d.value);
 })); //======= workflow drag & drop =======//
 
-var arr = [];
-
 function allowDrow(ev) {
   ev.preventDefault();
 }
@@ -327,18 +325,28 @@ function drop(ev, block) {
 
   if (block.id == "div2" && fromRoot == "div3") {
     dataTransfer.effectAllowed = 'none';
-  } // if(block.id == "div2"){
-  //     if(arr.indexOf(data) == -1){
-  //         arr.push(fromRoot);
-  //     }
-  // }
-  // if(block.id == "div1"){
-  //     if(arr.indexOf(data) != -1){
-  //        arr.splice(arr.indexOf(data), 1);
-  //     }
-  // }
+  }
 
+  if (block.id == "div3") {
+    var dropEl = document.getElementById(data);
+    block.appendChild(dropEl);
+    var changeInfo = $(dropEl).find('.ba-task__timeline');
+    $(changeInfo).html("<span class='icon-checked'></span> Completed!");
+    $(changeInfo).toggleClass('ba-task__timeline_done ba-task__timeline_delay');
+    return;
+  }
+
+  if (block.id == "div1") {
+    var _dropEl = document.getElementById(data);
+
+    block.appendChild(_dropEl);
+
+    var _changeInfo = $(_dropEl).find('.ba-task__timeline');
+
+    $(_changeInfo).html("<span class='icon-time'></span> 7 days left");
+    $(_changeInfo).toggleClass('ba-task__timeline_done');
+    return;
+  }
 
   block.appendChild(document.getElementById(data));
-  console.log(arr);
 }

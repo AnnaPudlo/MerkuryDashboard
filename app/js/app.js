@@ -422,7 +422,7 @@ totalSales1Svg.append("path")
 
 
 //======= workflow drag & drop =======//
-var arr = [];
+
 function allowDrow(ev) {
     ev.preventDefault();
 }
@@ -445,18 +445,25 @@ function drop(ev, block) {
     if (block.id == "div2" && fromRoot == "div3") {
         dataTransfer.effectAllowed = 'none';
     }
-    
 
-    // if(block.id == "div2"){
-    //     if(arr.indexOf(data) == -1){
-    //         arr.push(fromRoot);
-    //     }
-    // }
-    // if(block.id == "div1"){
-    //     if(arr.indexOf(data) != -1){
-    //        arr.splice(arr.indexOf(data), 1);
-    //     }
-    // }
+    if (block.id == "div3") {
+        let dropEl = document.getElementById(data);
+        block.appendChild(dropEl);
+        let changeInfo = $(dropEl).find('.ba-task__timeline');
+        $(changeInfo).html("<span class='icon-checked'></span> Completed!");
+        $(changeInfo).toggleClass('ba-task__timeline_done ba-task__timeline_delay');
+        return;
+    }
+
+    if (block.id == "div1") {
+        let dropEl = document.getElementById(data);
+        block.appendChild(dropEl);
+        let changeInfo = $(dropEl).find('.ba-task__timeline');
+        $(changeInfo).html("<span class='icon-time'></span> 7 days left");
+        $(changeInfo).toggleClass('ba-task__timeline_done');
+        return;
+    }
+
     block.appendChild(document.getElementById(data));
-    console.log(arr);
 }
+
