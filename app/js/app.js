@@ -304,7 +304,7 @@ let total1 = d3.select("#ba-total-chart1 svg")
   .attr('width', totalWidth)
   .attr('height', totalHeight);
 let totalG = total1.append('g')
-  .attr('transform', 'translate(' + width /2 + ',' + height /2 + ')');
+  .attr('transform', 'translate(' + totalWidth /2 + ',' + totalHeight /2 + ')');
   
 
 let totalBg = totalG.append('path')
@@ -321,7 +321,7 @@ let total2 = d3.select("#ba-total-chart2 svg")
   .attr('width', totalWidth)
   .attr('height', totalHeight);
 totalG = total2.append('g')
-  .attr('transform', 'translate(' + width /2 + ',' + height /2 + ')');
+  .attr('transform', 'translate(' + totalWidth /2 + ',' + totalHeight /2 + ')');
   
 totalBg = totalG.append('path')
   .datum({endAngle: tau})
@@ -337,7 +337,7 @@ let total3 = d3.select("#ba-total-chart3 svg")
   .attr('width', totalWidth)
   .attr('height', totalHeight);
 totalG = total3.append('g')
-  .attr('transform', 'translate(' + width /2 + ',' + height /2 + ')');
+  .attr('transform', 'translate(' + totalWidth /2 + ',' + totalHeight /2 + ')');
   
 totalBg = totalG.append('path')
   .datum({endAngle: tau})
