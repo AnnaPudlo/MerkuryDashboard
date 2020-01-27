@@ -67,8 +67,8 @@
               <div class="ba-section-header">
                 <h2 class="ba-section-title" dataCount="6">To do</h2><span class="icon-angle-right"></span>
               </div>
-              <div class="ba-tasks scrollbar">
-                <div class="ba-section-item ba-task"><span class="ba-badge ba-task-badge">N</span>
+              <div class="ba-tasks scrollbar" id="div1" ondrop="drop(event, this)" ondragover="allowDrow(event)">
+                <div class="ba-section-item ba-task" draggable="true" ondragstart="drag(event)" id="drag1"><span class="ba-badge ba-task-badge">N</span>
                   <div class="ba-task__info">
                     <h3 class="ba-task__title">New website for Sumy.co</h3>
                     <p class="ba-task__timeline"><span class="icon-time"></span>5 days left
@@ -76,7 +76,7 @@
                   </div>
                   <button class="ba-btn ba-btn__options icon-options"></button>
                 </div>
-                <div class="ba-section-item ba-task"><span class="ba-badge ba-task-badge">N</span>
+                <div class="ba-section-item ba-task" draggable="true" ondragstart="drag(event)" id="drag2"><span class="ba-badge ba-task-badge">N</span>
                   <div class="ba-task__info">
                     <h3 class="ba-task__title">New website for Sumy.co</h3>
                     <p class="ba-task__timeline ba-task__timeline_delay"><span class="icon-time"></span>5 days delay
@@ -84,7 +84,7 @@
                   </div>
                   <button class="ba-btn ba-btn__options icon-options"></button>
                 </div>
-                <div class="ba-section-item ba-task"><span class="ba-badge ba-task-badge">N</span>
+                <div class="ba-section-item ba-task" draggable="true" ondragstart="drag(event)" id="drag3"><span class="ba-badge ba-task-badge">N</span>
                   <div class="ba-task__info">
                     <h3 class="ba-task__title">New website for Sumy.co</h3>
                     <p class="ba-task__timeline"><span class="icon-time"></span>5 days left
@@ -92,7 +92,7 @@
                   </div>
                   <button class="ba-btn ba-btn__options icon-options"></button>
                 </div>
-                <div class="ba-section-item ba-task"><span class="ba-badge ba-task-badge">N</span>
+                <div class="ba-section-item ba-task" draggable="true" ondragstart="drag(event)" id="drag4"><span class="ba-badge ba-task-badge">N</span>
                   <div class="ba-task__info">
                     <h3 class="ba-task__title">New website for Sumy.co</h3>
                     <p class="ba-task__timeline"><span class="icon-time"></span>5 days left
@@ -100,7 +100,7 @@
                   </div>
                   <button class="ba-btn ba-btn__options icon-options"></button>
                 </div>
-                <div class="ba-section-item ba-task"><span class="ba-badge ba-task-badge">N</span>
+                <div class="ba-section-item ba-task" draggable="true" ondragstart="drag(event)" id="drag5"><span class="ba-badge ba-task-badge">N</span>
                   <div class="ba-task__info">
                     <h3 class="ba-task__title">New website for Sumy.co</h3>
                     <p class="ba-task__timeline"><span class="icon-time"></span>10 days left
@@ -108,7 +108,7 @@
                   </div>
                   <button class="ba-btn ba-btn__options icon-options"></button>
                 </div>
-                <div class="ba-section-item ba-task"><span class="ba-badge ba-task-badge">N</span>
+                <div class="ba-section-item ba-task" draggable="true" ondragstart="drag(event)" id="drag6"><span class="ba-badge ba-task-badge">N</span>
                   <div class="ba-task__info">
                     <h3 class="ba-task__title">New website for Sumy.co</h3>
                     <p class="ba-task__timeline ba-task__timeline_delay"><span class="icon-time"></span>5 days delay
@@ -124,8 +124,8 @@
               <div class="ba-section-header">
                 <h2 class="ba-section-title" dataCount="3">In progress</h2><span class="icon-angle-right"></span>
               </div>
-              <div class="ba-tasks scrollbar">
-                <div class="ba-section-item ba-task"><span class="ba-badge ba-task-badge">N</span>
+              <div class="ba-tasks scrollbar" id="div2" ondrop="drop(event, this)" ondragover="allowDrow(event)">
+                <div class="ba-section-item ba-task" draggable="true" ondragstart="drag(event)" id="drag7"><span class="ba-badge ba-task-badge">N</span>
                   <div class="ba-task__info">
                     <h3 class="ba-task__title">New website for Sumy.co</h3>
                     <p class="ba-task__timeline"><span class="icon-time"></span>5 days left
@@ -133,7 +133,7 @@
                   </div>
                   <button class="ba-btn ba-btn__options icon-options"></button>
                 </div>
-                <div class="ba-section-item ba-task"><span class="ba-badge ba-task-badge">N</span>
+                <div class="ba-section-item ba-task" draggable="true" ondragstart="drag(event)" id="drag8"><span class="ba-badge ba-task-badge">N</span>
                   <div class="ba-task__info">
                     <h3 class="ba-task__title">New website for Sumy.co</h3>
                     <p class="ba-task__timeline"><span class="icon-time"></span>3 days left
@@ -141,7 +141,7 @@
                   </div>
                   <button class="ba-btn ba-btn__options icon-options"></button>
                 </div>
-                <div class="ba-section-item ba-task"><span class="ba-badge ba-task-badge">N</span>
+                <div class="ba-section-item ba-task" draggable="true" ondragstart="drag(event)" id="drag9"><span class="ba-badge ba-task-badge">N</span>
                   <div class="ba-task__info">
                     <h3 class="ba-task__title">New website for Sumy.co</h3>
                     <p class="ba-task__timeline ba-task__timeline_delay"><span class="icon-time"></span>1 days delay
@@ -157,8 +157,8 @@
               <div class="ba-section-header">
                 <h2 class="ba-section-title" dataCount="4">Completed</h2>
               </div>
-              <div class="ba-tasks scrollbar">
-                <div class="ba-section-item ba-task"><span class="ba-badge ba-task-badge">N</span>
+              <div class="ba-tasks scrollbar" id="div3" ondrop="drop(event, this)" ondragover="allowDrow(event)">
+                <div class="ba-section-item ba-task" draggable="true" ondragstart="drag(event)" id="drag10"><span class="ba-badge ba-task-badge">N</span>
                   <div class="ba-task__info">
                     <h3 class="ba-task__title">New website for Sumy.co</h3>
                     <p class="ba-task__timeline ba-task__timeline_done"><span class="icon-checked"></span>Completed!
@@ -166,7 +166,7 @@
                   </div>
                   <button class="ba-btn ba-btn__options icon-options"></button>
                 </div>
-                <div class="ba-section-item ba-task"><span class="ba-badge ba-task-badge">N</span>
+                <div class="ba-section-item ba-task" draggable="true" ondragstart="drag(event)" id="drag11"><span class="ba-badge ba-task-badge">N</span>
                   <div class="ba-task__info">
                     <h3 class="ba-task__title">New website for Sumy.co</h3>
                     <p class="ba-task__timeline ba-task__timeline_done"><span class="icon-checked"></span>Completed!
@@ -174,7 +174,7 @@
                   </div>
                   <button class="ba-btn ba-btn__options icon-options"></button>
                 </div>
-                <div class="ba-section-item ba-task"><span class="ba-badge ba-task-badge">N</span>
+                <div class="ba-section-item ba-task" draggable="true" ondragstart="drag(event)" id="drag12"><span class="ba-badge ba-task-badge">N</span>
                   <div class="ba-task__info">
                     <h3 class="ba-task__title">New website for Sumy.co</h3>
                     <p class="ba-task__timeline ba-task__timeline_done"><span class="icon-checked"></span>Completed!
@@ -182,7 +182,7 @@
                   </div>
                   <button class="ba-btn ba-btn__options icon-options"></button>
                 </div>
-                <div class="ba-section-item ba-task"><span class="ba-badge ba-task-badge">N</span>
+                <div class="ba-section-item ba-task" draggable="true" ondragstart="drag(event)" id="drag13"><span class="ba-badge ba-task-badge">N</span>
                   <div class="ba-task__info">
                     <h3 class="ba-task__title">New website for Sumy.co</h3>
                     <p class="ba-task__timeline ba-task__timeline_done"><span class="icon-checked"></span>Completed!

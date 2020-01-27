@@ -229,3 +229,36 @@ totalBg = totalG.append('path').datum({
 totalFg = totalG.append('path').datum({
   endAngle: 0.35 * tau
 }).style('fill', 'blue').attr('d', totalArc); //======= end total chart =======//
+//======= workflow drag & drop =======//
+
+var arr = [];
+
+function allowDrow(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+  var parent = ev.currentTarget.parentElement;
+  ev.dataTransfer.setData("parent", parent.getAttribute('id'));
+}
+
+function drop(ev, block) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  var content = ev.dataTransfer.getData("parent");
+
+  if (block.id == "div2") {
+    if (arr.indexOf(data) == -1) {
+      arr.push(content);
+    }
+  } // if(block.id == "div1"){
+  //     if(arr.indexOf(data) != -1){
+  //        arr.splice(arr.indexOf(data), 1);
+  //     }
+  // }
+
+
+  block.appendChild(document.getElementById(data));
+  console.log(arr);
+}

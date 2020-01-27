@@ -12,8 +12,8 @@ block content
             .ba-section-header
               h2.ba-section-title(dataCount='6') To do
               span.icon-angle-right
-            .ba-tasks.scrollbar
-              .ba-section-item.ba-task
+            .ba-tasks(id="div1" ondrop="drop(event, this)" ondragover="allowDrow(event)").scrollbar
+              .ba-section-item.ba-task(draggable="true" ondragstart="drag(event)" id="drag1")
                 span.ba-badge.ba-task-badge N
                 .ba-task__info
                   h3.ba-task__title New website for Sumy.co
@@ -21,7 +21,7 @@ block content
                     span.icon-time
                     = '5 days left'
                 button.ba-btn.ba-btn__options.icon-options
-              .ba-section-item.ba-task
+              .ba-section-item.ba-task(draggable="true" ondragstart="drag(event)" id="drag2")
                 span.ba-badge.ba-task-badge N
                 .ba-task__info
                   h3.ba-task__title New website for Sumy.co
@@ -29,7 +29,7 @@ block content
                     span.icon-time
                     = '5 days delay'
                 button.ba-btn.ba-btn__options.icon-options
-              .ba-section-item.ba-task
+              .ba-section-item.ba-task(draggable="true" ondragstart="drag(event)" id="drag3")
                 span.ba-badge.ba-task-badge N
                 .ba-task__info
                   h3.ba-task__title New website for Sumy.co
@@ -37,7 +37,7 @@ block content
                     span.icon-time
                     = '5 days left'
                 button.ba-btn.ba-btn__options.icon-options
-              .ba-section-item.ba-task
+              .ba-section-item.ba-task(draggable="true" ondragstart="drag(event)" id="drag4")
                 span.ba-badge.ba-task-badge N
                 .ba-task__info
                   h3.ba-task__title New website for Sumy.co
@@ -45,7 +45,7 @@ block content
                     span.icon-time
                     = '5 days left'
                 button.ba-btn.ba-btn__options.icon-options
-              .ba-section-item.ba-task
+              .ba-section-item.ba-task(draggable="true" ondragstart="drag(event)" id="drag5")
                 span.ba-badge.ba-task-badge N
                 .ba-task__info
                   h3.ba-task__title New website for Sumy.co
@@ -53,7 +53,7 @@ block content
                     span.icon-time
                     = '10 days left'
                 button.ba-btn.ba-btn__options.icon-options
-              .ba-section-item.ba-task
+              .ba-section-item.ba-task(draggable="true" ondragstart="drag(event)" id="drag6")
                 span.ba-badge.ba-task-badge N
                 .ba-task__info
                   h3.ba-task__title New website for Sumy.co
@@ -66,8 +66,8 @@ block content
             .ba-section-header
               h2.ba-section-title(dataCount='3') In progress
               span.icon-angle-right
-            .ba-tasks.scrollbar
-              .ba-section-item.ba-task
+            .ba-tasks(id="div2" ondrop="drop(event, this)" ondragover="allowDrow(event)").scrollbar
+              .ba-section-item.ba-task(draggable="true" ondragstart="drag(event)" id="drag7")
                 span.ba-badge.ba-task-badge N
                 .ba-task__info
                   h3.ba-task__title New website for Sumy.co
@@ -75,7 +75,7 @@ block content
                     span.icon-time
                     = '5 days left'
                 button.ba-btn.ba-btn__options.icon-options
-              .ba-section-item.ba-task
+              .ba-section-item.ba-task(draggable="true" ondragstart="drag(event)" id="drag8")
                 span.ba-badge.ba-task-badge N
                 .ba-task__info
                   h3.ba-task__title New website for Sumy.co
@@ -83,7 +83,7 @@ block content
                     span.icon-time
                     = '3 days left'
                 button.ba-btn.ba-btn__options.icon-options
-              .ba-section-item.ba-task
+              .ba-section-item.ba-task(draggable="true" ondragstart="drag(event)" id="drag9")
                 span.ba-badge.ba-task-badge N
                 .ba-task__info
                   h3.ba-task__title New website for Sumy.co
@@ -95,8 +95,8 @@ block content
           section.ba-section.ba-section-done
             .ba-section-header
               h2.ba-section-title(dataCount='4') Completed
-            .ba-tasks.scrollbar
-              .ba-section-item.ba-task
+            .ba-tasks(id="div3" ondrop="drop(event, this)" ondragover="allowDrow(event)").scrollbar
+              .ba-section-item.ba-task(draggable="true" ondragstart="drag(event)" id="drag10")
                 span.ba-badge.ba-task-badge N
                 .ba-task__info
                   h3.ba-task__title New website for Sumy.co
@@ -104,7 +104,7 @@ block content
                     span.icon-checked
                     = 'Completed!'
                 button.ba-btn.ba-btn__options.icon-options
-              .ba-section-item.ba-task
+              .ba-section-item.ba-task(draggable="true" ondragstart="drag(event)" id="drag11")
                 span.ba-badge.ba-task-badge N
                 .ba-task__info
                   h3.ba-task__title New website for Sumy.co
@@ -112,7 +112,7 @@ block content
                     span.icon-checked
                     = 'Completed!'
                 button.ba-btn.ba-btn__options.icon-options
-              .ba-section-item.ba-task
+              .ba-section-item.ba-task(draggable="true" ondragstart="drag(event)" id="drag12")
                 span.ba-badge.ba-task-badge N
                 .ba-task__info
                   h3.ba-task__title New website for Sumy.co
@@ -120,7 +120,7 @@ block content
                     span.icon-checked
                     = 'Completed!'
                 button.ba-btn.ba-btn__options.icon-options
-              .ba-section-item.ba-task
+              .ba-section-item.ba-task(draggable="true" ondragstart="drag(event)" id="drag13")
                 span.ba-badge.ba-task-badge N
                 .ba-task__info
                   h3.ba-task__title New website for Sumy.co
