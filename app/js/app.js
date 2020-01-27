@@ -421,7 +421,7 @@ totalSales1Svg.append("path")
     .y(function (d) { return tsY(d.value) }));
 
 
-//======= workflow drag & drop =======//
+//======= start workflow drag & drop =======//
 
 function updateCounts() {
     let arrCounts = $('.elemCount');
@@ -433,7 +433,6 @@ function updateCounts() {
 }
 
 updateCounts();
-
 
 function allowDrow(ev) {
     ev.preventDefault();
@@ -448,37 +447,22 @@ function drop(ev, block) {
     var data = ev.dataTransfer.getData("text");
     var fromRoot = ev.dataTransfer.getData("parent");
     
-    if (block.id == "div1" && fromRoot == "div2") {
-        dataTransfer.effectAllowed = 'none';
-    }
-    if (block.id == "div3" && fromRoot == "div1") {
-        dataTransfer.effectAllowed = 'none';
-    }
-    if (block.id == "div2" && fromRoot == "div3") {
-        dataTransfer.effectAllowed = 'none';
-    }
-
     if (block.id == "div3") {
         let dropEl = document.getElementById(data);
-        block.appendChild(dropEl);
         let changeInfo = $(dropEl).find('.ba-task__timeline');
         $(changeInfo).html("<span class='icon-checked'></span> Completed!");
-        $(changeInfo).toggleClass('ba-task__timeline_done ba-task__timeline_delay');
-        updateCounts();
-        return;
-    }
-
-    if (block.id == "div1") {
-        let dropEl = document.getElementById(data);
-        block.appendChild(dropEl);
-        let changeInfo = $(dropEl).find('.ba-task__timeline');
-        $(changeInfo).html("<span class='icon-time'></span> 7 days left");
         $(changeInfo).toggleClass('ba-task__timeline_done');
-        updateCounts();
-        return;
+        $(changeInfo).removeClass('ba-task__timeline_delay');
+    } else {
+        let dropEl = document.getElementById(data);
+        let changeInfo = $(dropEl).find('.ba-task__timeline');
+            if (fromRoot=="div3") {
+                $(changeInfo).html("<span class='icon-time'></span> 7 days left");
+                $(changeInfo).toggleClass('ba-task__timeline_done');
+            }
     }
 
     block.appendChild(document.getElementById(data));
     updateCounts();
 }
-
+//======= end workflow drag & drop =======//

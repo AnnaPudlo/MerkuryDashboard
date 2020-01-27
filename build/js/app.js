@@ -298,7 +298,7 @@ totalSales1Svg.append("path").datum(reportData).attr("fill", "none").attr("strok
   return tsX(d.date);
 }).y(function (d) {
   return tsY(d.value);
-})); //======= workflow drag & drop =======//
+})); //======= start workflow drag & drop =======//
 
 function updateCounts() {
   var arrCounts = $('.elemCount');
@@ -332,41 +332,23 @@ function drop(ev, block) {
   var data = ev.dataTransfer.getData("text");
   var fromRoot = ev.dataTransfer.getData("parent");
 
-  if (block.id == "div1" && fromRoot == "div2") {
-    dataTransfer.effectAllowed = 'none';
-  }
-
-  if (block.id == "div3" && fromRoot == "div1") {
-    dataTransfer.effectAllowed = 'none';
-  }
-
-  if (block.id == "div2" && fromRoot == "div3") {
-    dataTransfer.effectAllowed = 'none';
-  }
-
   if (block.id == "div3") {
     var dropEl = document.getElementById(data);
-    block.appendChild(dropEl);
     var changeInfo = $(dropEl).find('.ba-task__timeline');
     $(changeInfo).html("<span class='icon-checked'></span> Completed!");
-    $(changeInfo).toggleClass('ba-task__timeline_done ba-task__timeline_delay');
-    updateCounts();
-    return;
-  }
-
-  if (block.id == "div1") {
+    $(changeInfo).toggleClass('ba-task__timeline_done');
+    $(changeInfo).removeClass('ba-task__timeline_delay');
+  } else {
     var _dropEl = document.getElementById(data);
-
-    block.appendChild(_dropEl);
 
     var _changeInfo = $(_dropEl).find('.ba-task__timeline');
 
-    $(_changeInfo).html("<span class='icon-time'></span> 7 days left");
-    $(_changeInfo).toggleClass('ba-task__timeline_done');
-    updateCounts();
-    return;
+    if (fromRoot == "div3") {
+      $(_changeInfo).html("<span class='icon-time'></span> 7 days left");
+      $(_changeInfo).toggleClass('ba-task__timeline_done');
+    }
   }
 
   block.appendChild(document.getElementById(data));
   updateCounts();
-}
+} //======= end workflow drag & drop =======//
