@@ -71,6 +71,7 @@
 
 .ba-main {
     background-color: $mainBackground;
+    min-height: 100%;
     @media screen and (min-width: 769px) {
         min-height: 100%;
 
@@ -144,7 +145,7 @@
     border: none;
     margin: 0 0.5rem;
     
-    &[class*='icon-'] {
+    & [class*='icon-'] {
         color: inherit;
     }
 

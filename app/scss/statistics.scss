@@ -1,0 +1,68 @@
+.ba-stats {
+    padding: 2rem;
+    padding-bottom: 1rem;
+    justify-content: space-between; 
+
+    &-form {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 275px;
+        width: 100%;
+        justify-content: space-between;
+
+        .ba-select-arrow {
+            background-color: $mainBackground;
+        }
+
+        .ba-form {
+            margin-bottom: 1rem;
+        }
+    }
+
+    &-title {
+        margin-bottom: 1rem;
+        font-size: 1.375rem;
+        color: $mainColor;
+        text-transform: capitalize;
+    }
+}
+
+.ba-item-wrap {
+    display: flex;
+    align-items: center;
+    height: 50%;
+
+    &_big {
+        height: 100%;
+    }
+
+    .ba-section-title {
+        margin: 0 auto;
+    }
+    
+    .ba-chart {
+        height: 100%;
+        width: 50%;
+    }
+    
+}
+
+.ba-btn-edit,
+.ba-btn-delete {
+    color: $primaryColor;
+    border: 1px solid $greyBorders;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.ba-section-total {
+    min-height: 300px;
+    height: 100%;
+}
+
+.ba-total-item {
+    display: flex;
+    align-items: center;
+    // flex-wrap: wrap;
+}

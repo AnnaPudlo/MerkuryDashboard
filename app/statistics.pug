@@ -6,5 +6,74 @@ block content
     main.col-12.col-md-9.col-lg-10.ba-main
       include templates/toolbar.pug
 
+      section.ba-stats.row
+        h1.ba-stats-title lorem ipsum stats
+        form.ba-stats-form
+          .ba-form
+            label(for="#ba-report__select") Period:
+            .ba-select-wrap
+              .ba-select-arrow.icon-angle-down
+              select#ba-report__select.ba-select
+                -var reportData = reportFiles
+                each reportPeriod in reportData
+                  option.ba-sales-option(value=reportPeriod[0])=reportPeriod[0]
+          .ba-form
+            label(for="#ba-sales__select") Period:
+            .ba-select-wrap
+              .ba-select-arrow.icon-angle-down
+              select#ba-sales__select.ba-select
+                -var salesData = salesFiles
+                each salesPeriod in salesData
+                  option.ba-sales-option(value=salesPeriod[0])=salesPeriod[0]
+      
+      .row.ba-review-wrap
+        .col-12.col-md-5
+          section.ba-section.ba-section-views
+            .ba-item-wrap
+              h2.ba-section-title 1560
+                br
+                span sales
+              div#ba-sales-line.ba-chart
+                svg.ba-chart__svg(viewbox = "0 0 720 360")
+            .ba-item-wrap
+              h2.ba-section-title 3230
+                br
+                span views
+              div#ba-sales-line.ba-chart
+                svg.ba-chart__svg(viewbox = "0 0 720 360")
+        .col-12.col-md-7
+          section.ba-section.ba-section-activity
+            .ba-section-header
+              h2.ba-section-title Active users
+              .ba-nav-wrap
+                button.ba-btn.ba-btn-edit.icon-edit
+                button.ba-btn.ba-btn-delete.icon-trash
+            div#ba-report-chart.ba-chart
+              svg.ba-chart__svg(viewbox = "0 0 1000 420")  
+        .col-12
+          section.ba-section.ba-section-total
+            .ba-section-header
+              h2.ba-section-title Total sales
+              .ba-nav-wrap
+                button.ba-btn.ba-btn-edit.icon-edit
+                button.ba-btn.ba-btn-delete.icon-trash
+            .row.ba-total-wrap
+              .col-12.col-md-4
+                .ba-total-item
+                  div#ba-total-chart1.ba-chart
+                    svg.ba-chart__svg(viewbox = "0 0 720 360")
+                  h2.ba-section-title Total sales
+              .col-12.col-md-4
+                .ba-total-item
+                  div#ba-total-chart2.ba-chart
+                    svg.ba-chart__svg(viewbox = "0 0 720 360")
+                  h2.ba-section-title Total sales
+              .col-12.col-md-4
+                .ba-total-item
+                  div#ba-total-chart3.ba-chart
+                    svg.ba-chart__svg(viewbox = "0 0 720 360")
+                  h2.ba-section-title Total sales
+            
+            
 block foot
   include templates/footer.pug
