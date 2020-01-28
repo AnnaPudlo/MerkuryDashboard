@@ -301,18 +301,45 @@ totalSales1Svg.append("path").datum(reportData).attr("fill", "none").attr("strok
   return tsY(d.value);
 })); //======= start workflow drag & drop =======//
 
+var ddItems = localStorage.getItem('ddItems') ? JSON.parse(localStorage.getItem('ddItems')) : {
+  div1: [],
+  div2: [],
+  div3: []
+};
+localStorage.setItem('ddItems', JSON.stringify(ddItems));
+var ddData = JSON.parse(localStorage.getItem('ddItems'));
+console.log(ddData);
+
+if (ddData.div1.length != 0) {
+  for (var _i3 = 0; _i3 < ddData.div1.length; _i3++) {
+    document.getElementById('div1').append(document.getElementById(ddData.div1[_i3]));
+  }
+}
+
+if (ddData.div2.length != 0) {
+  for (var _i4 = 0; _i4 < ddData.div2.length; _i4++) {
+    document.getElementById('div2').append(document.getElementById(ddData.div2[_i4]));
+  }
+}
+
+if (ddData.div3.length != 0) {
+  for (var _i5 = 0; _i5 < ddData.div3.length; _i5++) {
+    document.getElementById('div3').append(document.getElementById(ddData.div3[_i5]));
+  }
+}
+
 function updateCounts() {
   var arrCounts = $('.elemCount');
 
-  var _loop = function _loop(_i3) {
-    $(arrCounts[_i3]).text(function () {
-      var count = $(arrCounts[_i3]).closest('.ba-section').find('.ba-tasks').children().length;
+  var _loop = function _loop(_i6) {
+    $(arrCounts[_i6]).text(function () {
+      var count = $(arrCounts[_i6]).closest('.ba-section').find('.ba-tasks').children().length;
       return '(' + count + ')';
     });
   };
 
-  for (var _i3 = 0; _i3 < arrCounts.length; _i3++) {
-    _loop(_i3);
+  for (var _i6 = 0; _i6 < arrCounts.length; _i6++) {
+    _loop(_i6);
   }
 }
 
@@ -339,6 +366,8 @@ function drop(ev, block) {
     $(changeInfo).html("<span class='icon-checked'></span> Completed!");
     $(changeInfo).toggleClass('ba-task__timeline_done');
     $(changeInfo).removeClass('ba-task__timeline_delay');
+    removeIfExist(data);
+    ddItems.div3.push(data);
   } else {
     var _dropEl = document.getElementById(data);
 
@@ -348,29 +377,32 @@ function drop(ev, block) {
       $(_changeInfo).html("<span class='icon-time'></span> 7 days left");
       $(_changeInfo).toggleClass('ba-task__timeline_done');
     }
+
+    if (block.id == "div1") {
+      removeIfExist(data);
+      ddItems.div1.push(data);
+    }
+
+    ;
+
+    if (block.id == "div2") {
+      removeIfExist(data);
+      ddItems.div2.push(data);
+    }
+
+    ;
   }
 
   block.appendChild(document.getElementById(data));
-  localStorage.setItem('test', 1);
+  console.log(ddItems);
+  localStorage.setItem('ddItems', JSON.stringify(ddItems)); // localStorage.setItem(data, block.id);
+
   updateCounts();
 } //======= end workflow drag & drop =======//
-// let localInfo = {"todo": [], "in": [], "done": []};
-// let workflow = $('.ba-tasks');
-// for(let i=0; i< $(workflow[0]).children().length; i++) {
-//     localInfo.todo[i] = $(workflow[0]).children()[i].id;};
-// for(let i=0; i< $(workflow[1]).children().length; i++) {
-//     localInfo.in[i] = $(workflow[0]).children()[i].id;};
-// for(let i=0; i< $(workflow[2]).children().length; i++) {
-//     localInfo.done[i] = $(workflow[0]).children()[i].id;};
-// function remove(el) {
-//     if (localInfo.todo.includes(el))
-//         localInfo.todo.splice(localInfo.todo.indexOf(el), 1);
-//     console.log(localInfo.todo);
-// }
-// remove("drag1");
-// function add(el) {
-//     if (!localInfo.todo.includes(el))
-//         localInfo.todo.push(el);
-//     console.log(localInfo.todo);
-// }
-// add("drag1");
+
+
+function removeIfExist(el) {
+  if (ddItems.div1.includes(el)) ddItems.div1.splice(ddItems.div1.indexOf(el), 1);
+  if (ddItems.div2.includes(el)) ddItems.div2.splice(ddItems.div2.indexOf(el), 1);
+  if (ddItems.div2.includes(el)) ddItems.div3.splice(ddItems.div3.indexOf(el), 1);
+}
