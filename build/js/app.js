@@ -309,22 +309,24 @@ var ddItems = localStorage.getItem('ddItems') ? JSON.parse(localStorage.getItem(
 };
 localStorage.setItem('ddItems', JSON.stringify(ddItems));
 ddData = JSON.parse(localStorage.getItem('ddItems'));
-console.log(ddData);
 
 if (ddData.div1.length != 0) {
   for (var _i3 = 0; _i3 < ddData.div1.length; _i3++) {
+    ifCompleted(ddData.div1[_i3]);
     document.getElementById('div1').append(document.getElementById(ddData.div1[_i3]));
   }
 }
 
 if (ddData.div2.length != 0) {
   for (var _i4 = 0; _i4 < ddData.div2.length; _i4++) {
+    ifCompleted(ddData.div2[_i4]);
     document.getElementById('div2').append(document.getElementById(ddData.div2[_i4]));
   }
 }
 
 if (ddData.div3.length != 0) {
   for (var _i5 = 0; _i5 < ddData.div3.length; _i5++) {
+    toCompleted(ddData.div3[_i5]);
     document.getElementById('div3').append(document.getElementById(ddData.div3[_i5]));
   }
 }
@@ -359,25 +361,13 @@ function drag(ev) {
 function drop(ev, block) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
-  var fromRoot = ev.dataTransfer.getData("parent");
 
   if (block.id == "div3") {
-    var dropEl = document.getElementById(data);
-    var changeInfo = $(dropEl).find('.ba-task__timeline');
-    $(changeInfo).html("<span class='icon-checked'></span> Completed!");
-    $(changeInfo).toggleClass('ba-task__timeline_done');
-    $(changeInfo).removeClass('ba-task__timeline_delay');
+    toCompleted(data);
     removeIfExist(data);
     ddItems.div3.push(data);
   } else {
-    var _dropEl = document.getElementById(data);
-
-    var _changeInfo = $(_dropEl).find('.ba-task__timeline');
-
-    if (fromRoot == "div3") {
-      $(_changeInfo).html("<span class='icon-time'></span> 7 days left");
-      $(_changeInfo).toggleClass('ba-task__timeline_done');
-    }
+    ifCompleted(data);
 
     if (block.id == "div1") {
       removeIfExist(data);
@@ -395,7 +385,6 @@ function drop(ev, block) {
   }
 
   block.appendChild(document.getElementById(data));
-  console.log(ddItems);
   localStorage.setItem('ddItems', JSON.stringify(ddItems));
   updateCounts();
 }
@@ -403,5 +392,23 @@ function drop(ev, block) {
 function removeIfExist(el) {
   if (ddItems.div1.includes(el)) ddItems.div1.splice(ddItems.div1.indexOf(el), 1);
   if (ddItems.div2.includes(el)) ddItems.div2.splice(ddItems.div2.indexOf(el), 1);
-  if (ddItems.div2.includes(el)) ddItems.div3.splice(ddItems.div3.indexOf(el), 1);
+  if (ddItems.div3.includes(el)) ddItems.div3.splice(ddItems.div3.indexOf(el), 1);
+}
+
+function ifCompleted(el) {
+  var elem = document.getElementById(el);
+  var changeInfo = $(elem).find('.ba-task__timeline');
+
+  if (elem.parentElement.id == "div3") {
+    $(changeInfo).html("<span class='icon-time'></span> 7 days left");
+    $(changeInfo).removeClass('ba-task__timeline_done');
+  }
+}
+
+function toCompleted(el) {
+  var elem = document.getElementById(el);
+  var changeInfo = $(elem).find('.ba-task__timeline');
+  $(changeInfo).html("<span class='icon-checked'></span> Completed!");
+  $(changeInfo).addClass('ba-task__timeline_done');
+  $(changeInfo).removeClass('ba-task__timeline_delay');
 } //======= end workflow drag & drop =======//
