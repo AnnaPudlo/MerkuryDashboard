@@ -263,23 +263,9 @@
     color: $mainColor;
     min-width: 70px;
     background:transparent;
-
-    &-wrap {
-        position: relative;
-
-        & .ba-select-arrow {
-            position: absolute;
-            top: 1px;
-            bottom: 1px;
-            right: 1px;
-            width: 15px;
-            background-color: #fff;
-            display: block;
-            pointer-events: none;
-            text-align: center;
-            font-size: 0.875rem;
-        }
-    }
+    font-size: 0.6rem;
+    height: 100%;
+    line-height: 30px;
 }
 
 .ba-chart {

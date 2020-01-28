@@ -20,6 +20,8 @@ $(form).on('submit', function (e) {
 
 $(document).ready(function () {
 
+  $('select').niceSelect();
+
   //======= start menu-btn (mobile-first) =======//
   $('.ba-menu-btn').on('click', function () {
     $('.ba-menu').toggle();
@@ -463,6 +465,35 @@ function drop(ev, block) {
     }
 
     block.appendChild(document.getElementById(data));
+    localStorage.setItem('test', 1);
     updateCounts();
 }
+
 //======= end workflow drag & drop =======//
+
+
+// let localInfo = {"todo": [], "in": [], "done": []};
+// let workflow = $('.ba-tasks');
+
+// for(let i=0; i< $(workflow[0]).children().length; i++) {
+//     localInfo.todo[i] = $(workflow[0]).children()[i].id;};
+// for(let i=0; i< $(workflow[1]).children().length; i++) {
+//     localInfo.in[i] = $(workflow[0]).children()[i].id;};
+// for(let i=0; i< $(workflow[2]).children().length; i++) {
+//     localInfo.done[i] = $(workflow[0]).children()[i].id;};
+
+// function remove(el) {
+//     if (localInfo.todo.includes(el))
+//         localInfo.todo.splice(localInfo.todo.indexOf(el), 1);
+//     console.log(localInfo.todo);
+// }
+
+// remove("drag1");
+
+// function add(el) {
+//     if (!localInfo.todo.includes(el))
+//         localInfo.todo.push(el);
+//     console.log(localInfo.todo);
+// }
+
+// add("drag1");

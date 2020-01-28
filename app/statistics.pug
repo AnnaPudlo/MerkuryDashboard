@@ -11,20 +11,16 @@ block content
         form.ba-stats-form
           .ba-form
             label(for="#ba-report__select") Period:
-            .ba-select-wrap
-              .ba-select-arrow.icon-angle-down
-              select#ba-report__select.ba-select
-                -var reportData = reportFiles
-                each reportPeriod in reportData
-                  option.ba-sales-option(value=reportPeriod[0])=reportPeriod[0]
+            select#ba-report__select.ba-select
+              -var reportData = reportFiles
+              each reportPeriod in reportData
+                option.ba-sales-option(value=reportPeriod[0])=reportPeriod[0]
           .ba-form
             label(for="#ba-sales__select") Period:
-            .ba-select-wrap
-              .ba-select-arrow.icon-angle-down
-              select#ba-sales__select.ba-select
-                -var salesData = salesFiles
-                each salesPeriod in salesData
-                  option.ba-sales-option(value=salesPeriod[0])=salesPeriod[0]
+            select#ba-sales__select.ba-select
+              -var salesData = salesFiles
+              each salesPeriod in salesData
+                option.ba-sales-option(value=salesPeriod[0])=salesPeriod[0]
       
       .row.ba-review-wrap
         .col-12.col-md-5
