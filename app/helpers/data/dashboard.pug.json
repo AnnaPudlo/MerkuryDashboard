@@ -1,14 +1,14 @@
 {
   "salesFiles": [
-		["last year", "#"],
-		["2018", "#"],
-		["2017", "#"]
+		["last year", 0],
+		["2018", 1],
+		["2017", 2]
   ],
 
   "reportFiles": [
-		["last year", "#"],
-		["2018", "#"],
-		["2017", "#"]
+		["last year", 0],
+		["2018", 1],
+		["2017", 2]
   ],
   
   "message": "Gulp / Pug / Scss Boilerplate",

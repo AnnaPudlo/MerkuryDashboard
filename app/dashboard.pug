@@ -18,7 +18,7 @@ block content
                 select#ba-sales__select.ba-select
                   -var salesData = salesFiles
                   each salesPeriod in salesData
-                    option.ba-sales-option(value=salesPeriod[0])=salesPeriod[0]
+                    option.ba-sales-option(value=salesPeriod[1])=salesPeriod[0]
             div#ba-sales-chart.ba-chart
               svg.ba-chart__svg(viewbox = "0 0 720 360")
         .col-12.col-md-7
@@ -30,7 +30,7 @@ block content
                 select#ba-report__select.ba-select
                   -var reportData = reportFiles
                   each reportPeriod in reportData
-                    option.ba-sales-option(value=reportPeriod[0])=reportPeriod[0]
+                    option.ba-sales-option(value=reportPeriod[1])=reportPeriod[0]
             div#ba-report-chart.ba-chart
               svg.ba-chart__svg(viewbox = "0 0 1000 420")
         .col-12.col-md-4
