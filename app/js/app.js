@@ -54,7 +54,7 @@ $(document).ready(function () {
     donutDraw(dataset[this.value]);
   });
 
-  $("#ba-report__select").change(function() {
+  $("#ba-report__select").change(function () {
     let dataset = [
       [
         { date: "2019-01-01", value: 300 },
@@ -100,7 +100,7 @@ $(document).ready(function () {
       ]
     ];
     d3.select('#ba-report-chart svg *').remove();
-    scatterDraw(dataset[this.value]);
+    scatterDraw(dataset[this.value], "#ba-report-chart");
   });
 
   //======= end select for redrawing charts =======//
@@ -263,12 +263,16 @@ donutDraw(dataset2019);
 //======= end sales chart =======//
 
 //======= start report chart =======//
-function scatterDraw(someData) {
+function parseDate(d) {
+  return { date: d3.timeParse("%Y-%m-%d")(d.date), value: d.value }
+}
+
+function scatterDraw(someData, path) {
   let margin = { top: 0, right: 0, bottom: 0, left: 60 };
   let reportWidth = 1000 - margin.left - margin.right;
   let reportHeight = 400 - margin.top - margin.bottom;
 
-  let reportSvg = d3.select("#ba-report-chart svg")
+  let reportSvg = d3.select(path + " svg")
     .attr("width", reportWidth + margin.left + margin.right)
     .attr("height", reportHeight + margin.top + margin.bottom)
     .append("g")
@@ -276,10 +280,6 @@ function scatterDraw(someData) {
       "translate(" + margin.left + "," + margin.top + ")");
 
   let reportData = someData;
-
-  function parseDate(d) {
-    return { date: d3.timeParse("%Y-%m-%d")(d.date), value: d.value }
-  }
 
   for (let i = 0; i < reportData.length; i++)
     reportData[i] = parseDate(reportData[i]);
@@ -330,7 +330,7 @@ function scatterDraw(someData) {
       .x(function (d) { return reportX(d.date) })
       .y(function (d) { return reportY(d.value) }))
 
-  let dataTool = d3.select('#ba-report-chart')
+  let dataTool = d3.select(path)
     .append('div')
     .style('opacity', 0)
     .attr('class', 'tooltip-scatter');
@@ -386,86 +386,77 @@ let reportData = [
   { date: "2019-11-01", value: 380 },
   { date: "2019-12-01", value: 290 },
 ];
+let activeData = [
+  { date: "2019-01-01", value: 300 },
+  { date: "2019-02-01", value: 350 },
+  { date: "2019-03-01", value: 290 },
+  { date: "2019-04-01", value: 450 },
+  { date: "2019-05-01", value: 350 },
+  { date: "2019-06-01", value: 740 },
+  { date: "2019-07-01", value: 640 },
+  { date: "2019-08-01", value: 410 },
+  { date: "2019-09-01", value: 490 },
+  { date: "2019-10-01", value: 300 },
+  { date: "2019-11-01", value: 380 },
+  { date: "2019-12-01", value: 290 },
+];
 
-scatterDraw(reportData);
+scatterDraw(reportData, "#ba-report-chart");
+scatterDraw(activeData, "#ba-active-chart");
 //======= end report chart =======//
 
 //======= start total chart =======//
-let totalWidth = 500;
-let totalHeight = 500;
+function arcDraw(angle, road) {
+  let totalWidth = 500;
+  let totalHeight = 500;
 
-let tau = 2 * Math.PI;
-let totalArc = d3.arc()
-  .innerRadius(180)
-  .outerRadius(240)
-  .startAngle(0)
-  .cornerRadius(30);
+  let tau = 2 * Math.PI;
+  let totalArc = d3.arc()
+    .innerRadius(180)
+    .outerRadius(240)
+    .startAngle(0)
+    .cornerRadius(30);
 
-let total1 = d3.select("#ba-total-chart1 svg")
-  .attr('width', totalWidth)
-  .attr('height', totalHeight);
-let totalG = total1.append('g')
-  .attr('transform', 'translate(' + totalWidth / 2 + ',' + totalHeight / 2 + ')');
+  let total1 = d3.select(road)
+    .attr('width', totalWidth)
+    .attr('height', totalHeight);
+  let totalG = total1.append('g')
+    .attr('transform', 'translate(' + totalWidth / 2 + ',' + totalHeight / 2 + ')');
 
 
-let totalBg = totalG.append('path')
-  .datum({ endAngle: tau })
-  .style("fill", "#ddd")
-  .attr('d', totalArc);
+  let totalBg = totalG.append('path')
+    .datum({ endAngle: tau })
+    .style("fill", "#ddd")
+    .attr('d', totalArc);
 
-let totalFg = totalG.append('path')
-  .datum({ endAngle: 0.45 * tau })
-  .style('fill', 'blue')
-  .attr('d', totalArc);
+  let totalFg = totalG.append('path')
+    .datum({ endAngle: angle * tau })
+    .style('fill', 'blue')
+    .attr('d', totalArc);
+}
 
-let total2 = d3.select("#ba-total-chart2 svg")
-  .attr('width', totalWidth)
-  .attr('height', totalHeight);
-totalG = total2.append('g')
-  .attr('transform', 'translate(' + totalWidth / 2 + ',' + totalHeight / 2 + ')');
+arcDraw(0.45, "#ba-total-chart1 svg");
+arcDraw(0.20, "#ba-total-chart2 svg");
+arcDraw(0.35, "#ba-total-chart3 svg");
 
-totalBg = totalG.append('path')
-  .datum({ endAngle: tau })
-  .style("fill", "#ddd")
-  .attr('d', totalArc);
 
-totalFg = totalG.append('path')
-  .datum({ endAngle: 0.20 * tau })
-  .style('fill', 'blue')
-  .attr('d', totalArc);
-
-let total3 = d3.select("#ba-total-chart3 svg")
-  .attr('width', totalWidth)
-  .attr('height', totalHeight);
-totalG = total3.append('g')
-  .attr('transform', 'translate(' + totalWidth / 2 + ',' + totalHeight / 2 + ')');
-
-totalBg = totalG.append('path')
-  .datum({ endAngle: tau })
-  .style("fill", "#ddd")
-  .attr('d', totalArc);
-
-totalFg = totalG.append('path')
-  .datum({ endAngle: 0.35 * tau })
-  .style('fill', 'blue')
-  .attr('d', totalArc);
 
 //======= end total chart =======//
 
-margin = { top: 0, right: 0, bottom: 0, left: 60 };
-// let totalSalesWidth = 1000 - margin.left - margin.right;
-// let totalSalesHeight = 400 - margin.top - margin.bottom;
+let margin = { top: 0, right: 0, bottom: 0, left: 60 };
+let totalSalesWidth = 1000 - margin.left - margin.right;
+let totalSalesHeight = 400 - margin.top - margin.bottom;
 
 let totalSalesSvg = d3.select("#ba-sales-line1 svg")
-  .attr("width", reportWidth + margin.left + margin.right)
-  .attr("height", reportHeight + margin.top + margin.bottom)
+  .attr("width", totalSalesWidth + margin.left + margin.right)
+  .attr("height", totalSalesHeight + margin.top + margin.bottom)
   .append("g")
   .attr("transform",
     "translate(" + margin.left + "," + margin.top + ")");
 
 let totalSales1Svg = d3.select("#ba-sales-line2 svg")
-  .attr("width", reportWidth + margin.left + margin.right)
-  .attr("height", reportHeight + margin.top + margin.bottom)
+  .attr("width", totalSalesWidth + margin.left + margin.right)
+  .attr("height", totalSalesHeight + margin.top + margin.bottom)
   .append("g")
   .attr("transform",
     "translate(" + margin.left + "," + margin.top + ")");
@@ -491,18 +482,18 @@ console.log(totalSalesData);
 
 let tsX = d3.scaleTime()
   .domain(d3.extent(totalSalesData, function (d) { return d.date; }))
-  .range([0, reportWidth]);
+  .range([0, totalSalesWidth]);
 totalSalesSvg.append("g")
-  .attr("transform", "translate(0," + reportHeight + ")");
+  .attr("transform", "translate(0," + totalSalesHeight + ")");
 totalSales1Svg.append("g")
-  .attr("transform", "translate(0," + reportHeight + ")");
+  .attr("transform", "translate(0," + totalSalesHeight + ")");
 
 let tsY = d3.scaleLinear()
   .domain([100, 790])
-  .range([reportHeight, 0]);
+  .range([totalSalesHeight, 0]);
 
 totalSalesSvg.append("path")
-  .datum(reportData)
+  .datum(totalSalesData)
   .attr("fill", "none")
   .attr("stroke", "blue")
   .attr("stroke-width", 4)
@@ -512,7 +503,7 @@ totalSalesSvg.append("path")
     .y(function (d) { return tsY(d.value) }));
 
 totalSales1Svg.append("path")
-  .datum(reportData)
+  .datum(totalSalesData)
   .attr("fill", "none")
   .attr("stroke", "fuchsia")
   .attr("stroke-width", 4)

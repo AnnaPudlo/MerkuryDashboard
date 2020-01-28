@@ -183,7 +183,7 @@ $(document).ready(function () {
       value: 380
     }]];
     d3.select('#ba-report-chart svg *').remove();
-    scatterDraw(dataset[this.value]);
+    scatterDraw(dataset[this.value], "#ba-report-chart");
   }); //======= end select for redrawing charts =======//
   //======= start menu-btn (mobile-first) =======//
 
@@ -283,7 +283,14 @@ var dataset2019 = [{
 donutDraw(dataset2019); //======= end sales chart =======//
 //======= start report chart =======//
 
-function scatterDraw(someData) {
+function parseDate(d) {
+  return {
+    date: d3.timeParse("%Y-%m-%d")(d.date),
+    value: d.value
+  };
+}
+
+function scatterDraw(someData, path) {
   var margin = {
     top: 0,
     right: 0,
@@ -292,15 +299,8 @@ function scatterDraw(someData) {
   };
   var reportWidth = 1000 - margin.left - margin.right;
   var reportHeight = 400 - margin.top - margin.bottom;
-  var reportSvg = d3.select("#ba-report-chart svg").attr("width", reportWidth + margin.left + margin.right).attr("height", reportHeight + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  var reportSvg = d3.select(path + " svg").attr("width", reportWidth + margin.left + margin.right).attr("height", reportHeight + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
   var reportData = someData;
-
-  function parseDate(d) {
-    return {
-      date: d3.timeParse("%Y-%m-%d")(d.date),
-      value: d.value
-    };
-  }
 
   for (var i = 0; i < reportData.length; i++) {
     reportData[i] = parseDate(reportData[i]);
@@ -322,7 +322,7 @@ function scatterDraw(someData) {
   }).y(function (d) {
     return reportY(d.value);
   }));
-  var dataTool = d3.select('#ba-report-chart').append('div').style('opacity', 0).attr('class', 'tooltip-scatter');
+  var dataTool = d3.select(path).append('div').style('opacity', 0).attr('class', 'tooltip-scatter');
   reportSvg.append('g').selectAll('dot').data(reportData).enter().append('circle').attr('class', 'scatterDot').attr('cx', function (d) {
     return reportX(d.date);
   }).attr('cy', function (d) {
@@ -374,48 +374,76 @@ var reportData = [{
   date: "2019-12-01",
   value: 290
 }];
-scatterDraw(reportData); //======= end report chart =======//
+var activeData = [{
+  date: "2019-01-01",
+  value: 300
+}, {
+  date: "2019-02-01",
+  value: 350
+}, {
+  date: "2019-03-01",
+  value: 290
+}, {
+  date: "2019-04-01",
+  value: 450
+}, {
+  date: "2019-05-01",
+  value: 350
+}, {
+  date: "2019-06-01",
+  value: 740
+}, {
+  date: "2019-07-01",
+  value: 640
+}, {
+  date: "2019-08-01",
+  value: 410
+}, {
+  date: "2019-09-01",
+  value: 490
+}, {
+  date: "2019-10-01",
+  value: 300
+}, {
+  date: "2019-11-01",
+  value: 380
+}, {
+  date: "2019-12-01",
+  value: 290
+}];
+scatterDraw(reportData, "#ba-report-chart");
+scatterDraw(activeData, "#ba-active-chart"); //======= end report chart =======//
 //======= start total chart =======//
 
-var totalWidth = 500;
-var totalHeight = 500;
-var tau = 2 * Math.PI;
-var totalArc = d3.arc().innerRadius(180).outerRadius(240).startAngle(0).cornerRadius(30);
-var total1 = d3.select("#ba-total-chart1 svg").attr('width', totalWidth).attr('height', totalHeight);
-var totalG = total1.append('g').attr('transform', 'translate(' + totalWidth / 2 + ',' + totalHeight / 2 + ')');
-var totalBg = totalG.append('path').datum({
-  endAngle: tau
-}).style("fill", "#ddd").attr('d', totalArc);
-var totalFg = totalG.append('path').datum({
-  endAngle: 0.45 * tau
-}).style('fill', 'blue').attr('d', totalArc);
-var total2 = d3.select("#ba-total-chart2 svg").attr('width', totalWidth).attr('height', totalHeight);
-totalG = total2.append('g').attr('transform', 'translate(' + totalWidth / 2 + ',' + totalHeight / 2 + ')');
-totalBg = totalG.append('path').datum({
-  endAngle: tau
-}).style("fill", "#ddd").attr('d', totalArc);
-totalFg = totalG.append('path').datum({
-  endAngle: 0.20 * tau
-}).style('fill', 'blue').attr('d', totalArc);
-var total3 = d3.select("#ba-total-chart3 svg").attr('width', totalWidth).attr('height', totalHeight);
-totalG = total3.append('g').attr('transform', 'translate(' + totalWidth / 2 + ',' + totalHeight / 2 + ')');
-totalBg = totalG.append('path').datum({
-  endAngle: tau
-}).style("fill", "#ddd").attr('d', totalArc);
-totalFg = totalG.append('path').datum({
-  endAngle: 0.35 * tau
-}).style('fill', 'blue').attr('d', totalArc); //======= end total chart =======//
+function arcDraw(angle, road) {
+  var totalWidth = 500;
+  var totalHeight = 500;
+  var tau = 2 * Math.PI;
+  var totalArc = d3.arc().innerRadius(180).outerRadius(240).startAngle(0).cornerRadius(30);
+  var total1 = d3.select(road).attr('width', totalWidth).attr('height', totalHeight);
+  var totalG = total1.append('g').attr('transform', 'translate(' + totalWidth / 2 + ',' + totalHeight / 2 + ')');
+  var totalBg = totalG.append('path').datum({
+    endAngle: tau
+  }).style("fill", "#ddd").attr('d', totalArc);
+  var totalFg = totalG.append('path').datum({
+    endAngle: angle * tau
+  }).style('fill', 'blue').attr('d', totalArc);
+}
 
-margin = {
+arcDraw(0.45, "#ba-total-chart1 svg");
+arcDraw(0.20, "#ba-total-chart2 svg");
+arcDraw(0.35, "#ba-total-chart3 svg"); //======= end total chart =======//
+
+var margin = {
   top: 0,
   right: 0,
   bottom: 0,
   left: 60
-}; // let totalSalesWidth = 1000 - margin.left - margin.right;
-// let totalSalesHeight = 400 - margin.top - margin.bottom;
-
-var totalSalesSvg = d3.select("#ba-sales-line1 svg").attr("width", reportWidth + margin.left + margin.right).attr("height", reportHeight + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-var totalSales1Svg = d3.select("#ba-sales-line2 svg").attr("width", reportWidth + margin.left + margin.right).attr("height", reportHeight + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+};
+var totalSalesWidth = 1000 - margin.left - margin.right;
+var totalSalesHeight = 400 - margin.top - margin.bottom;
+var totalSalesSvg = d3.select("#ba-sales-line1 svg").attr("width", totalSalesWidth + margin.left + margin.right).attr("height", totalSalesHeight + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+var totalSales1Svg = d3.select("#ba-sales-line2 svg").attr("width", totalSalesWidth + margin.left + margin.right).attr("height", totalSalesHeight + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 var totalSalesData = [{
   date: "2019-01-01",
   value: 300
@@ -461,16 +489,16 @@ for (var i = 0; i < totalSalesData.length; i++) {
 console.log(totalSalesData);
 var tsX = d3.scaleTime().domain(d3.extent(totalSalesData, function (d) {
   return d.date;
-})).range([0, reportWidth]);
-totalSalesSvg.append("g").attr("transform", "translate(0," + reportHeight + ")");
-totalSales1Svg.append("g").attr("transform", "translate(0," + reportHeight + ")");
-var tsY = d3.scaleLinear().domain([100, 790]).range([reportHeight, 0]);
-totalSalesSvg.append("path").datum(reportData).attr("fill", "none").attr("stroke", "blue").attr("stroke-width", 4).attr("d", d3.line().curve(d3.curveCatmullRom.alpha(0.15)).x(function (d) {
+})).range([0, totalSalesWidth]);
+totalSalesSvg.append("g").attr("transform", "translate(0," + totalSalesHeight + ")");
+totalSales1Svg.append("g").attr("transform", "translate(0," + totalSalesHeight + ")");
+var tsY = d3.scaleLinear().domain([100, 790]).range([totalSalesHeight, 0]);
+totalSalesSvg.append("path").datum(totalSalesData).attr("fill", "none").attr("stroke", "blue").attr("stroke-width", 4).attr("d", d3.line().curve(d3.curveCatmullRom.alpha(0.15)).x(function (d) {
   return tsX(d.date);
 }).y(function (d) {
   return tsY(d.value);
 }));
-totalSales1Svg.append("path").datum(reportData).attr("fill", "none").attr("stroke", "fuchsia").attr("stroke-width", 4).attr("d", d3.line().curve(d3.curveCatmullRom.alpha(0.15)).x(function (d) {
+totalSales1Svg.append("path").datum(totalSalesData).attr("fill", "none").attr("stroke", "fuchsia").attr("stroke-width", 4).attr("d", d3.line().curve(d3.curveCatmullRom.alpha(0.15)).x(function (d) {
   return tsX(d.date);
 }).y(function (d) {
   return tsY(d.value);
