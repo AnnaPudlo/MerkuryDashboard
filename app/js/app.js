@@ -424,10 +424,10 @@ totalSales1Svg.append("path")
 
 
 //======= start workflow drag & drop =======//
-
+let ddData;
 let ddItems = localStorage.getItem('ddItems') ? JSON.parse(localStorage.getItem('ddItems')) : { div1: [], div2: [], div3: []};
 localStorage.setItem('ddItems', JSON.stringify(ddItems));
-let ddData = JSON.parse(localStorage.getItem('ddItems'));
+ddData = JSON.parse(localStorage.getItem('ddItems'));
 
 console.log(ddData);
 
@@ -493,12 +493,8 @@ function drop(ev, block) {
     
     console.log(ddItems);
     localStorage.setItem('ddItems', JSON.stringify(ddItems));
-    // localStorage.setItem(data, block.id);
     updateCounts();
 }
-
-
-//======= end workflow drag & drop =======//
 
 function removeIfExist(el) {
     if (ddItems.div1.includes(el))
@@ -509,4 +505,4 @@ function removeIfExist(el) {
         ddItems.div3.splice(ddItems.div3.indexOf(el), 1);
 }
 
-
+//======= end workflow drag & drop =======//

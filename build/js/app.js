@@ -301,13 +301,14 @@ totalSales1Svg.append("path").datum(reportData).attr("fill", "none").attr("strok
   return tsY(d.value);
 })); //======= start workflow drag & drop =======//
 
+var ddData;
 var ddItems = localStorage.getItem('ddItems') ? JSON.parse(localStorage.getItem('ddItems')) : {
   div1: [],
   div2: [],
   div3: []
 };
 localStorage.setItem('ddItems', JSON.stringify(ddItems));
-var ddData = JSON.parse(localStorage.getItem('ddItems'));
+ddData = JSON.parse(localStorage.getItem('ddItems'));
 console.log(ddData);
 
 if (ddData.div1.length != 0) {
@@ -395,14 +396,12 @@ function drop(ev, block) {
 
   block.appendChild(document.getElementById(data));
   console.log(ddItems);
-  localStorage.setItem('ddItems', JSON.stringify(ddItems)); // localStorage.setItem(data, block.id);
-
+  localStorage.setItem('ddItems', JSON.stringify(ddItems));
   updateCounts();
-} //======= end workflow drag & drop =======//
-
+}
 
 function removeIfExist(el) {
   if (ddItems.div1.includes(el)) ddItems.div1.splice(ddItems.div1.indexOf(el), 1);
   if (ddItems.div2.includes(el)) ddItems.div2.splice(ddItems.div2.indexOf(el), 1);
   if (ddItems.div2.includes(el)) ddItems.div3.splice(ddItems.div3.indexOf(el), 1);
-}
+} //======= end workflow drag & drop =======//
