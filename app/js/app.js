@@ -26,6 +26,11 @@ $('.ba-btn').hover(
       $(this).removeClass('animated heartBeat');
 });
 
+let taskBadgeArr = document.querySelectorAll('.ba-task-badge');
+for (let i=0; i<taskBadgeArr.length; i++) {
+  $(taskBadgeArr[i]).text($(taskBadgeArr[i]).closest('.ba-task').find('.ba-task__title').text().charAt(0));
+}
+
 $(document).ready(function () {
 
   //======= start select for redrawing charts =======//

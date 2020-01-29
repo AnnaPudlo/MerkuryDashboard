@@ -23,6 +23,12 @@ $('.ba-btn').hover(function () {
 }, function () {
   $(this).removeClass('animated heartBeat');
 });
+var taskBadgeArr = document.querySelectorAll('.ba-task-badge');
+
+for (var i = 0; i < taskBadgeArr.length; i++) {
+  $(taskBadgeArr[i]).text($(taskBadgeArr[i]).closest('.ba-task').find('.ba-task__title').text().charAt(0));
+}
+
 $(document).ready(function () {
   //======= start select for redrawing charts =======//
   $('select').niceSelect();
@@ -232,8 +238,8 @@ function donutDraw(somedata) {
   var legendSpacing = 8;
   var dataTotal = 0;
 
-  for (var i = 0; i < dataset.length; i++) {
-    dataTotal += dataset[i].count;
+  for (var _i = 0; _i < dataset.length; _i++) {
+    dataTotal += dataset[_i].count;
   }
 
   console.log(dataTotal);
@@ -307,8 +313,8 @@ function scatterDraw(someData, path) {
   var reportSvg = d3.select(path + " svg").attr("width", reportWidth + margin.left + margin.right).attr("height", reportHeight + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
   var reportData = someData;
 
-  for (var i = 0; i < reportData.length; i++) {
-    reportData[i] = parseDate(reportData[i]);
+  for (var _i2 = 0; _i2 < reportData.length; _i2++) {
+    reportData[_i2] = parseDate(reportData[_i2]);
   }
 
   console.log(reportData);
@@ -501,8 +507,8 @@ var totalSalesData = [{
   value: 290
 }];
 
-for (var i = 0; i < totalSalesData.length; i++) {
-  totalSalesData[i] = parseDate(totalSalesData[i]);
+for (var _i3 = 0; _i3 < totalSalesData.length; _i3++) {
+  totalSalesData[_i3] = parseDate(totalSalesData[_i3]);
 }
 
 console.log(totalSalesData);
@@ -535,23 +541,23 @@ ddData = JSON.parse(localStorage.getItem('ddItems'));
 
 if (document.getElementById('div1')) {
   if (ddData.div1.length != 0) {
-    for (var _i = 0; _i < ddData.div1.length; _i++) {
-      ifCompleted(ddData.div1[_i]);
-      document.getElementById('div1').append(document.getElementById(ddData.div1[_i]));
+    for (var _i4 = 0; _i4 < ddData.div1.length; _i4++) {
+      ifCompleted(ddData.div1[_i4]);
+      document.getElementById('div1').append(document.getElementById(ddData.div1[_i4]));
     }
   }
 
   if (ddData.div2.length != 0) {
-    for (var _i2 = 0; _i2 < ddData.div2.length; _i2++) {
-      ifCompleted(ddData.div2[_i2]);
-      document.getElementById('div2').append(document.getElementById(ddData.div2[_i2]));
+    for (var _i5 = 0; _i5 < ddData.div2.length; _i5++) {
+      ifCompleted(ddData.div2[_i5]);
+      document.getElementById('div2').append(document.getElementById(ddData.div2[_i5]));
     }
   }
 
   if (ddData.div3.length != 0) {
-    for (var _i3 = 0; _i3 < ddData.div3.length; _i3++) {
-      toCompleted(ddData.div3[_i3]);
-      document.getElementById('div3').append(document.getElementById(ddData.div3[_i3]));
+    for (var _i6 = 0; _i6 < ddData.div3.length; _i6++) {
+      toCompleted(ddData.div3[_i6]);
+      document.getElementById('div3').append(document.getElementById(ddData.div3[_i6]));
     }
   }
 }
@@ -559,15 +565,15 @@ if (document.getElementById('div1')) {
 function updateCounts() {
   var arrCounts = $('.elemCount');
 
-  var _loop = function _loop(_i4) {
-    $(arrCounts[_i4]).text(function () {
-      var count = $(arrCounts[_i4]).closest('.ba-section').find('.ba-tasks').children().length;
+  var _loop = function _loop(_i7) {
+    $(arrCounts[_i7]).text(function () {
+      var count = $(arrCounts[_i7]).closest('.ba-section').find('.ba-tasks').children().length;
       return '(' + count + ')';
     });
   };
 
-  for (var _i4 = 0; _i4 < arrCounts.length; _i4++) {
-    _loop(_i4);
+  for (var _i7 = 0; _i7 < arrCounts.length; _i7++) {
+    _loop(_i7);
   }
 }
 
