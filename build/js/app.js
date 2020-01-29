@@ -528,24 +528,26 @@ var ddItems = localStorage.getItem('ddItems') ? JSON.parse(localStorage.getItem(
 localStorage.setItem('ddItems', JSON.stringify(ddItems));
 ddData = JSON.parse(localStorage.getItem('ddItems'));
 
-if (ddData.div1.length != 0) {
-  for (var _i = 0; _i < ddData.div1.length; _i++) {
-    ifCompleted(ddData.div1[_i]);
-    document.getElementById('div1').append(document.getElementById(ddData.div1[_i]));
+if (document.getElementById('div1')) {
+  if (ddData.div1.length != 0) {
+    for (var _i = 0; _i < ddData.div1.length; _i++) {
+      ifCompleted(ddData.div1[_i]);
+      document.getElementById('div1').append(document.getElementById(ddData.div1[_i]));
+    }
   }
-}
 
-if (ddData.div2.length != 0) {
-  for (var _i2 = 0; _i2 < ddData.div2.length; _i2++) {
-    ifCompleted(ddData.div2[_i2]);
-    document.getElementById('div2').append(document.getElementById(ddData.div2[_i2]));
+  if (ddData.div2.length != 0) {
+    for (var _i2 = 0; _i2 < ddData.div2.length; _i2++) {
+      ifCompleted(ddData.div2[_i2]);
+      document.getElementById('div2').append(document.getElementById(ddData.div2[_i2]));
+    }
   }
-}
 
-if (ddData.div3.length != 0) {
-  for (var _i3 = 0; _i3 < ddData.div3.length; _i3++) {
-    toCompleted(ddData.div3[_i3]);
-    document.getElementById('div3').append(document.getElementById(ddData.div3[_i3]));
+  if (ddData.div3.length != 0) {
+    for (var _i3 = 0; _i3 < ddData.div3.length; _i3++) {
+      toCompleted(ddData.div3[_i3]);
+      document.getElementById('div3').append(document.getElementById(ddData.div3[_i3]));
+    }
   }
 }
 

@@ -440,7 +440,7 @@ function arcDraw(angle, road, fillColor) {
     .attr('x', -30)
     .attr('y', -30)
     .append("xhtml:body")
-    .html("<h1 class='salesCount' style='font-size: 48px; color:" + fillColor + "'>" + angle*100 + "%</h1>");
+    .html("<h1 class='salesCount' style='font-size: 48px; color:" + fillColor + "'>" + angle * 100 + "%</h1>");
 
   d3.timeout(function () {
     totalFg.transition()
@@ -547,24 +547,26 @@ let ddItems = localStorage.getItem('ddItems') ? JSON.parse(localStorage.getItem(
 localStorage.setItem('ddItems', JSON.stringify(ddItems));
 ddData = JSON.parse(localStorage.getItem('ddItems'));
 
-if (ddData.div1.length != 0) {
-  for (let i = 0; i < ddData.div1.length; i++) {
-    ifCompleted(ddData.div1[i]);
-    document.getElementById('div1').append(document.getElementById(ddData.div1[i]));
+if (document.getElementById('div1')) {
+  if (ddData.div1.length != 0) {
+    for (let i = 0; i < ddData.div1.length; i++) {
+      ifCompleted(ddData.div1[i]);
+      document.getElementById('div1').append(document.getElementById(ddData.div1[i]));
+    }
   }
-}
 
-if (ddData.div2.length != 0) {
-  for (let i = 0; i < ddData.div2.length; i++) {
-    ifCompleted(ddData.div2[i]);
-    document.getElementById('div2').append(document.getElementById(ddData.div2[i]));
+  if (ddData.div2.length != 0) {
+    for (let i = 0; i < ddData.div2.length; i++) {
+      ifCompleted(ddData.div2[i]);
+      document.getElementById('div2').append(document.getElementById(ddData.div2[i]));
+    }
   }
-}
 
-if (ddData.div3.length != 0) {
-  for (let i = 0; i < ddData.div3.length; i++) {
-    toCompleted(ddData.div3[i]);
-    document.getElementById('div3').append(document.getElementById(ddData.div3[i]));
+  if (ddData.div3.length != 0) {
+    for (let i = 0; i < ddData.div3.length; i++) {
+      toCompleted(ddData.div3[i]);
+      document.getElementById('div3').append(document.getElementById(ddData.div3[i]));
+    }
   }
 }
 
