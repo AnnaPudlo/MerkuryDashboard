@@ -10,11 +10,11 @@ $(form).on('submit', function (e) {
   fetch('https://jsonplaceholder.typicode.com/users?username=' + user.value + '&email=' + password.value).then(function (response) {
     return response.json();
   }).then(function (json) {
-    if (json.length != 0) {
-      window.location = 'dashboard.html'; // console.log("hello, "+json[0].name)
+    if (json.length == 0) {
+      $('.errorWrap').show(); // console.log("hello, "+json[0].name)
+    } else {
+      window.location = 'dashboard.html';
     }
-
-    ;
   });
 }); //======= end authorization =======//
 

@@ -26,11 +26,14 @@
         <h1 class="ba-title">Welcome <span class="blue">back</span>!
         </h1>
         <form class="ba-form-login" action="#" method="POST" id="ba-form-login">
+          <div class="errorWrap">
+            <p class="errorMes">Incorrect password or username</p>
+          </div>
           <label class="ba-label icon-user">
-            <input class="ba-input__login" type="text" id="ba-login" name="ba-login" placeholder="Username">
+            <input class="ba-input__login" type="text" id="ba-login" name="ba-login" placeholder="Username" required>
           </label>
           <label class="ba-label icon-lock">
-            <input class="ba-input__password" type="password" id="ba-password" name="ba-password" placeholder="Password">
+            <input class="ba-input__password" type="password" id="ba-password" name="ba-password" placeholder="Password" required>
           </label>
           <button class="ba-btn__submit" type="submit" id="submitBtn" name="ba-submit">Enter</button>
         </form>

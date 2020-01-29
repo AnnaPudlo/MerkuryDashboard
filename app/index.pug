@@ -21,10 +21,12 @@ include templates/head.pug
           span.blue back
           = '!'
         form.ba-form-login(action="#" method="POST" id="ba-form-login")
+          .errorWrap
+            p.errorMes Incorrect password or username
           label.ba-label.icon-user
-            input.ba-input__login(type="text", id="ba-login" name="ba-login", placeholder="Username")
+            input.ba-input__login(type="text", id="ba-login" name="ba-login", placeholder="Username" required)
           label.ba-label.icon-lock
-            input.ba-input__password(type="password", id="ba-password" name="ba-password", placeholder="Password")
+            input.ba-input__password(type="password", id="ba-password" name="ba-password", placeholder="Password" required)
           button.ba-btn__submit(type="submit", id="submitBtn" name="ba-submit") Enter
 
 include templates/footer.pug

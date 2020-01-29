@@ -10,10 +10,13 @@ $(form).on('submit', function (e) {
   fetch('https://jsonplaceholder.typicode.com/users?username=' + user.value + '&email=' + password.value)
     .then(response => response.json())
     .then(json => {
-      if (json.length != 0) {
-        window.location = 'dashboard.html';
+      if (json.length == 0) {
+        $('.errorWrap').show();
         // console.log("hello, "+json[0].name)
-      };
+      }
+      else {
+        window.location = 'dashboard.html';
+      }
     });
 });
 //======= end authorization =======//

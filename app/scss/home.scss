@@ -76,6 +76,12 @@
             text-align: center;
             padding: 50px 0;
         }
+
+        .errorWrap {
+            display: none;
+            background-color:rgba(255,0,0,0.3);
+            border: 1px solid rgba(255,0,0,0.7);
+        }
     }
 }
 
