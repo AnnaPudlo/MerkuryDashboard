@@ -406,7 +406,7 @@ scatterDraw(activeData, "#ba-active-chart");
 //======= end report chart =======//
 
 //======= start total chart =======//
-function arcDraw(angle, road) {
+function arcDraw(angle, road, fillColor) {
   let totalWidth = 500;
   let totalHeight = 500;
 
@@ -431,15 +431,41 @@ function arcDraw(angle, road) {
 
   let totalFg = totalG.append('path')
     .datum({ endAngle: angle * tau })
-    .style('fill', 'blue')
+    .style('fill', fillColor)
     .attr('d', totalArc);
+
+  total1.select('g').append("foreignObject")
+    .attr("width", 100)
+    .attr("height", 80)
+    .attr('x', -30)
+    .attr('y', -30)
+    .append("xhtml:body")
+    .html("<h1 class='salesCount' style='font-size: 48px; color:" + fillColor + "'>" + angle*100 + "%</h1>");
+
+  d3.timeout(function () {
+    totalFg.transition()
+      .duration(2500)
+      .attrTween("d", arcTween(angle * tau));
+  }, 2500);
+
+  function arcTween(newAngle) {
+
+    return function (d) {
+
+      var interpolate = d3.interpolate(0, newAngle);
+
+      return function (t) {
+        d.endAngle = interpolate(t);
+        return totalArc(d);
+      };
+    };
+  }
+
 }
 
-arcDraw(0.45, "#ba-total-chart1 svg");
-arcDraw(0.20, "#ba-total-chart2 svg");
-arcDraw(0.35, "#ba-total-chart3 svg");
-
-
+arcDraw(0.45, "#ba-total-chart1 svg", '#5786fe');
+arcDraw(0.20, "#ba-total-chart2 svg", '#aa5fb9');
+arcDraw(0.35, "#ba-total-chart3 svg", '#f83c7b');
 
 //======= end total chart =======//
 

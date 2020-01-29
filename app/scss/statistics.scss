@@ -24,6 +24,7 @@
         font-size: 1.375rem;
         color: $mainColor;
         text-transform: capitalize;
+
     }
 }
 
@@ -38,6 +39,7 @@
 
     .ba-section-title {
         margin: 0 auto;
+        text-align: center;
     }
     
     .ba-chart {
@@ -64,5 +66,16 @@
 .ba-total-item {
     display: flex;
     align-items: center;
+    padding-right: 1rem;
     // flex-wrap: wrap;
+
+    .ba-chart {
+        width: 70%;
+    }
+}
+
+.ba-subtitle {
+    font-size: 0.75rem;
+    font-weight: 400;
+    text-transform: capitalize;
 }
