@@ -18,6 +18,11 @@ $(form).on('submit', function (e) {
   });
 }); //======= end authorization =======//
 
+$('.ba-btn').hover(function () {
+  $(this).addClass('animated heartBeat');
+}, function () {
+  $(this).removeClass('animated heartBeat');
+});
 $(document).ready(function () {
   //======= start select for redrawing charts =======//
   $('select').niceSelect();
@@ -431,7 +436,7 @@ function arcDraw(angle, road, fillColor) {
   total1.select('g').append("foreignObject").attr("width", 100).attr("height", 80).attr('x', -30).attr('y', -30).append("xhtml:body").html("<h1 class='salesCount' style='font-size: 48px; color:" + fillColor + "'>" + angle * 100 + "%</h1>");
   d3.timeout(function () {
     totalFg.transition().duration(2500).attrTween("d", arcTween(angle * tau));
-  }, 2500);
+  }, 200);
 
   function arcTween(newAngle) {
     return function (d) {

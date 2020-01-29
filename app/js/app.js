@@ -18,6 +18,14 @@ $(form).on('submit', function (e) {
 });
 //======= end authorization =======//
 
+$('.ba-btn').hover(
+  function () {
+      $(this).addClass('animated heartBeat');
+  },
+  function () {
+      $(this).removeClass('animated heartBeat');
+});
+
 $(document).ready(function () {
 
   //======= start select for redrawing charts =======//
@@ -446,7 +454,7 @@ function arcDraw(angle, road, fillColor) {
     totalFg.transition()
       .duration(2500)
       .attrTween("d", arcTween(angle * tau));
-  }, 2500);
+  }, 200);
 
   function arcTween(newAngle) {
 
